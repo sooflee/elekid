@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPO Performance Report — 2025 &amp; 2026 US IPOs</title>
+<meta name="description" content="How US IPOs from 2025 and 2026 have performed relative to their offer prices, as of June 10, 2026.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #181b24;
+    --surface-2: #1f2330;
+    --border: #2a2f3e;
+    --text: #e8eaf0;
+    --muted: #9aa1b2;
+    --green: #34d399;
+    --red: #f87171;
+    --accent: #818cf8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  header {
+    padding: 64px 0 40px;
+    background: linear-gradient(180deg, #141826 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+  }
+  h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
+  .subtitle { color: var(--muted); margin-top: 10px; max-width: 640px; }
+  .asof {
+    display: inline-block; margin-top: 18px; padding: 4px 12px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 999px; font-size: 0.8rem; color: var(--muted);
+  }
+  section { padding: 44px 0 8px; }
+  h2 { font-size: 1.45rem; margin-bottom: 6px; letter-spacing: -0.01em; }
+  h3 { font-size: 1.05rem; margin: 28px 0 10px; color: var(--text); }
+  .section-note { color: var(--muted); font-size: 0.92rem; margin-bottom: 22px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 22px 0; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 18px 20px;
+  }
+  .card .value { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
+  .card .label { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+  .value.up { color: var(--green); }
+  .value.down { color: var(--red); }
+  .chart-wrap {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px; margin: 18px 0 28px;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 14px 0 28px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pos { color: var(--green); font-weight: 600; }
+  .neg { color: var(--red); font-weight: 600; }
+  .pill {
+    display: inline-block; padding: 1px 9px; border-radius: 999px;
+    font-size: 0.74rem; background: var(--surface-2); border: 1px solid var(--border); color: var(--muted);
+  }
+  .callout {
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 8px; padding: 16px 20px; margin: 22px 0; font-size: 0.93rem; color: var(--muted);
+  }
+  .callout strong { color: var(--text); }
+  ul.caveats { margin: 12px 0 28px 20px; color: var(--muted); font-size: 0.92rem; }
+  ul.caveats li { margin-bottom: 8px; }
+  .sources a { color: var(--accent); text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+  .sources li { margin-bottom: 6px; font-size: 0.9rem; }
+  footer {
+    margin-top: 56px; padding: 28px 0 40px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 0.85rem;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 1.6rem; }
+    th, td { padding: 8px 8px; font-size: 0.84rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Stock Performance After IPO</h1>
+    <p class="subtitle">How US IPOs from 2025 and 2026 year-to-date have performed relative to their offer prices — winners, losers, and what the aggregate numbers say.</p>
+    <span class="asof">Data as of June 10, 2026 · prices are intraday snapshots</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <section>
+    <h2>The headline</h2>
+    <p class="section-note">
+      Most IPOs from this cycle are underwater. Only <strong style="color:var(--text)">38.3%</strong> of 2025 IPOs were trading above their offer
+      price at year-end 2025, and several large names have fallen further since. Gains are heavily concentrated in
+      <strong style="color:var(--text)">AI infrastructure and stablecoins</strong>; losses cluster in fintech/BNPL, crypto, and LNG.
+    </p>
+    <div class="cards">
+      <div class="card"><div class="value">202</div><div class="label">2025 US IPOs (ex-SPACs) · $44.0B raised — a four-year high</div></div>
+      <div class="card"><div class="value">38.3%</div><div class="label">2025 IPOs trading above offer at year-end 2025</div></div>
+      <div class="card"><div class="value up">+5%</div><div class="label">Renaissance IPO Index, 2025 — vs S&amp;P 500 +18%</div></div>
+      <div class="card"><div class="value down">−8%</div><div class="label">Renaissance IPO Index, Q1 2026 — vs S&amp;P 500 −4%</div></div>
+    </div>
+    <div class="callout">
+      <strong>Pattern worth knowing:</strong> the average 2025 IPO returned just ~1–2% from offer, but the 71 deals that raised
+      $100M+ averaged +18–21%. Big, institutionally-backed deals fared far better than the long tail of small listings —
+      and even within the large deals, a handful of AI and crypto winners carried the averages.
+    </div>
+  </section>
+
+  <section>
+    <h2>2025 cohort</h2>
+    <p class="section-note">202 IPOs raised $44.0 billion (Renaissance Capital methodology; 347 listings counting SPACs and micro-caps). Performance of the most notable names vs. offer price at June 2026 prices:</p>
+
+    <div class="chart-wrap"><canvas id="chart2025" height="300"></canvas></div>
+
+    <table>
+      <thead>
+        <tr><th>Company</th><th>Ticker</th><th>Sector</th><th class="num">IPO price</th><th class="num">Price (6/10/26)</th><th class="num">Change</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Circle</td><td>CRCL</td><td>Stablecoins</td><td class="num">$31.00</td><td class="num">~$80</td><td class="num pos">+~160%</td></tr>
+        <tr><td>CoreWeave</td><td>CRWV</td><td>AI infrastructure</td><td class="num">$40.00</td><td class="num">$97.55</td><td class="num pos">+143%</td></tr>
+        <tr><td>Bullish</td><td>BLSH</td><td>Crypto exchange</td><td class="num">$37.00</td><td class="num">$27.06</td><td class="num neg">−27%</td></tr>
+        <tr><td>SailPoint</td><td>SAIL</td><td>Cybersecurity</td><td class="num">$23.00</td><td class="num">$14.52</td><td class="num neg">−35%</td></tr>
+        <tr><td>Chime</td><td>CHYM</td><td>Fintech</td><td class="num">$27.00</td><td class="num">$16.76</td><td class="num neg">−37%</td></tr>
+        <tr><td>Figma</td><td>FIG</td><td>Design software</td><td class="num">$33.00</td><td class="num">$20.09</td><td class="num neg">−39%</td></tr>
+        <tr><td>Venture Global</td><td>VG</td><td>LNG</td><td class="num">$25.00</td><td class="num">$13.26</td><td class="num neg">−47%</td></tr>
+        <tr><td>Klarna</td><td>KLAR</td><td>BNPL</td><td class="num">$40.00</td><td class="num">$15.98</td><td class="num neg">−59%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Other notable 2025 names <span class="pill">returns as of 12/17/25 snapshot</span></h3>
+    <table>
+      <thead>
+        <tr><th>Company</th><th>Sector</th><th class="num">Return from offer</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Metsera (acquired by Pfizer)</td><td>Biotech — obesity</td><td class="num pos">+292%</td></tr>
+        <tr><td>Karman Holdings</td><td>Defense / space</td><td class="num pos">+195%</td></tr>
+        <tr><td>Medline — largest deal at $6.3B</td><td>Medical supplies</td><td class="num pos">+41%</td></tr>
+        <tr><td>BETA Technologies</td><td>Electric aviation</td><td class="num neg">−18%</td></tr>
+        <tr><td>NIQ Global Intelligence</td><td>Consumer data</td><td class="num neg">−25%</td></tr>
+        <tr><td>eToro</td><td>Trading platform</td><td class="num neg">−33%</td></tr>
+        <tr><td>StubHub</td><td>Ticketing</td><td class="num neg">−41%</td></tr>
+        <tr><td>Navan</td><td>Travel / expense</td><td class="num neg">−48%</td></tr>
+        <tr><td>Firefly Aerospace</td><td>Space</td><td class="num neg">−59%</td></tr>
+        <tr><td>Gemini Space Station</td><td>Crypto exchange</td><td class="num neg">−61%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Deterioration since year-end:</strong> Figma (+13.2%) and Bullish (+13.9%) were both <em>above</em> offer at
+      year-end 2025 and have since flipped firmly negative — the 2025 cohort has weakened through the first half of 2026.
+    </div>
+  </section>
+
+  <section>
+    <h2>2026 year-to-date</h2>
+    <p class="section-note">35 IPOs raised $9.9B in Q1 2026 (Renaissance); ~168 listings through June 10 counting SPACs, up 16.7% year over year. Q1's $100M+ deals averaged a roughly flat return, but the largest recent deals skew positive:</p>
+
+    <div class="chart-wrap"><canvas id="chart2026" height="280"></canvas></div>
+
+    <table>
+      <thead>
+        <tr><th>Company</th><th>Ticker</th><th>Sector</th><th class="num">IPO price</th><th class="num">Price (6/10/26)</th><th class="num">Change</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Madison Air</td><td>MAIR</td><td>Industrials</td><td class="num">$27.00</td><td class="num">$38.65</td><td class="num pos">+43%</td></tr>
+        <tr><td>Cerebras — biggest 2026 IPO, $5.55B</td><td>CBRS</td><td>AI chips</td><td class="num">$185.00</td><td class="num">~$239</td><td class="num pos">+29%</td></tr>
+        <tr><td>Fervo Energy</td><td>FRVO</td><td>Geothermal</td><td class="num">$27.00</td><td class="num">$34.16</td><td class="num pos">+27%</td></tr>
+        <tr><td>INNIO</td><td>INIO</td><td>Energy equipment</td><td class="num">$27.00</td><td class="num">$32.15</td><td class="num pos">+19%</td></tr>
+        <tr><td>BX Digital Infrastructure</td><td>BXDC</td><td>Data centers</td><td class="num">$20.00</td><td class="num">$22.03</td><td class="num pos">+10%</td></tr>
+        <tr><td>Quantinuum</td><td>QNT</td><td>Quantum computing</td><td class="num">$60.00</td><td class="num">$51.81</td><td class="num neg">−14%</td></tr>
+        <tr><td>BitGo</td><td>BTGO</td><td>Crypto custody</td><td class="num">$18.00</td><td class="num">$5.26</td><td class="num neg">−70%</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Takeaways</h2>
+    <ul class="caveats" style="color:var(--text)">
+      <li><strong>The pop fades.</strong> Big first-day gains (Figma's +250% day one was a record for a billion-dollar IPO) say little about where a stock trades a year later.</li>
+      <li><strong>Theme concentration is extreme.</strong> AI infrastructure (CoreWeave, Cerebras) and stablecoins (Circle) account for nearly all the large-cap winners across both cohorts.</li>
+      <li><strong>Fintech and crypto listings have been punishing</strong> — Klarna −59%, Chime −37%, eToro −33%, Gemini −61%, BitGo −70%.</li>
+      <li><strong>The index lagged badly.</strong> An investor holding the IPO cohort broadly (Renaissance IPO Index) earned +5% in 2025 vs +18% for the S&amp;P 500, then lost −8% in Q1 2026.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Methodology &amp; caveats</h2>
+    <ul class="caveats">
+      <li>All "current" prices are intraday snapshots from June 10, 2026 and will drift; exact percentages may vary by a few points depending on quote timing.</li>
+      <li>The 202-IPO count (Renaissance Capital) covers deals with ≥$50M market cap and excludes SPACs and closed-end funds; the 347-listing count (stockanalysis.com) includes SPACs and micro-caps. The two methodologies should not be mixed.</li>
+      <li>The 38.3%-above-offer figure and the "other notable 2025 names" returns are from Renaissance's mid/late-December 2025 snapshot, not June 2026. Given that Figma and Bullish have since flipped below offer, the share above offer today is likely lower.</li>
+      <li>No verified June-2026 above/below-offer split exists for the full cohorts; a claim attempting one for recent 2026 deals failed independent verification and is excluded.</li>
+    </ul>
+  </section>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ul class="caveats">
+      <li><a href="https://www.renaissancecapital.com/review/2025USReview_Public.pdf">Renaissance Capital — 2025 US IPO Market Review</a> (<a href="https://www.renaissancecapital.com/review/2025USReview_Press.pdf">press version</a>)</li>
+      <li><a href="https://www.renaissancecapital.com/review/1Q26USReview_Public.pdf">Renaissance Capital — 1Q 2026 US IPO Market Review</a></li>
+      <li><a href="https://www.renaissancecapital.com/IPO-Center/Pricings">Renaissance Capital — IPO Pricings tracker</a></li>
+      <li><a href="https://stockanalysis.com/ipos/2025/">stockanalysis.com — 2025 IPOs</a> · <a href="https://stockanalysis.com/ipos/2026/">2026 IPOs</a></li>
+      <li><a href="https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/">TechCrunch — Cerebras raises $5.5B</a></li>
+      <li><a href="https://www.tipranks.com/news/2025-ipo-winners-and-losers-figma-bullish-klarna-lead-31-billion-comeback">TipRanks — 2025 IPO winners and losers</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    Compiled June 10, 2026 from publicly available IPO trackers and market reviews. Not investment advice.
+  </div>
+</footer>
+
+<script>
+const axisColor = '#9aa1b2';
+const gridColor = '#2a2f3e';
+
+function barColors(values) {
+  return values.map(v => v >= 0 ? 'rgba(52, 211, 153, 0.75)' : 'rgba(248, 113, 113, 0.75)');
+}
+
+function makeChart(id, title, labels, values) {
+  new Chart(document.getElementById(id), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{ data: values, backgroundColor: barColors(values), borderRadius: 4 }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: { display: true, text: title, color: '#e8eaf0', font: { size: 14, weight: '600' } },
+        tooltip: { callbacks: { label: ctx => (ctx.raw > 0 ? '+' : '') + ctx.raw + '% from offer' } }
+      },
+      scales: {
+        x: {
+          ticks: { color: axisColor, callback: v => v + '%' },
+          grid: { color: gridColor }
+        },
+        y: { ticks: { color: axisColor }, grid: { display: false } }
+      }
+    }
+  });
+}
+
+makeChart('chart2025', '2025 IPOs — % change from offer price (June 2026)',
+  ['Circle', 'CoreWeave', 'Bullish', 'SailPoint', 'Chime', 'Figma', 'Venture Global', 'Klarna'],
+  [160, 143, -27, -35, -37, -39, -47, -59]);
+
+makeChart('chart2026', '2026 IPOs — % change from offer price (June 2026)',
+  ['Madison Air', 'Cerebras', 'Fervo Energy', 'INNIO', 'BX Digital Infra', 'Quantinuum', 'BitGo'],
+  [43, 29, 27, 19, 10, -14, -70]);
+</script>
+
+</body>
+</html>
