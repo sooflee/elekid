@@ -8,80 +8,94 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
 <style>
   :root {
-    --bg: #0f1117;
-    --surface: #181b24;
-    --surface-2: #1f2330;
-    --border: #2a2f3e;
-    --text: #e8eaf0;
-    --muted: #9aa1b2;
-    --green: #34d399;
-    --red: #f87171;
-    --accent: #818cf8;
+    --bg: #fbfaf7;
+    --surface: #f5f2ec;
+    --surface-2: #eee9df;
+    --border: #e6e1d8;
+    --text: #1c1b19;
+    --muted: #6f6a62;
+    --green: #1f6f54;
+    --red: #b3382e;
+    --accent: #1f6f54;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
-    line-height: 1.6;
+    font: 17px/1.7 var(--serif);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-  header {
-    padding: 64px 0 40px;
-    background: linear-gradient(180deg, #141826 0%, var(--bg) 100%);
-    border-bottom: 1px solid var(--border);
+  .container { max-width: 900px; margin: 0 auto; padding: 0 22px; }
+  p { margin: 0 0 1em; }
+  header { padding: 34px 0 0; margin-bottom: 8px; }
+  header .container { padding-bottom: 22px; border-bottom: 2px solid var(--text); }
+  .kick {
+    font-family: var(--sans); color: var(--accent); letter-spacing: .14em;
+    text-transform: uppercase; font-size: 12px; font-weight: 700;
   }
-  h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.02em; }
-  .subtitle { color: var(--muted); margin-top: 10px; max-width: 640px; }
-  .asof {
-    display: inline-block; margin-top: 18px; padding: 4px 12px;
-    background: var(--surface-2); border: 1px solid var(--border);
-    border-radius: 999px; font-size: 0.8rem; color: var(--muted);
+  h1 {
+    font-size: clamp(26px, 3.6vw, 38px); line-height: 1.12;
+    letter-spacing: -0.015em; margin: .2em 0 .3em; font-weight: 700;
   }
-  section { padding: 44px 0 8px; }
-  h2 { font-size: 1.45rem; margin-bottom: 6px; letter-spacing: -0.01em; }
-  h3 { font-size: 1.05rem; margin: 28px 0 10px; color: var(--text); }
-  .section-note { color: var(--muted); font-size: 0.92rem; margin-bottom: 22px; }
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 22px 0; }
-  .card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 18px 20px;
+  .subtitle { font-size: 18px; line-height: 1.5; color: #3a3833; margin: 0 0 14px; max-width: 720px; }
+  .asof { font-family: var(--sans); font-size: 13.5px; color: var(--muted); }
+  section { margin: 36px 0; }
+  h2 { font-size: 23px; line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 .5em; }
+  h3 { font-size: 18px; font-weight: 700; margin: 1.6em 0 .4em; letter-spacing: -0.01em; }
+  .section-note { margin: 0 0 1em; }
+  .cards {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px; margin: 22px 0;
   }
-  .card .value { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; }
-  .card .label { color: var(--muted); font-size: 0.82rem; margin-top: 4px; }
+  .card { text-align: center; }
+  .card .value { font-size: 34px; font-weight: 700; line-height: 1; color: var(--accent); }
+  .card .label {
+    font-family: var(--sans); color: var(--muted); font-size: 12.5px;
+    margin-top: 7px; line-height: 1.4;
+  }
   .value.up { color: var(--green); }
   .value.down { color: var(--red); }
   .chart-wrap {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 20px; margin: 18px 0 28px;
+    border-radius: 9px; padding: 18px; margin: 16px 0 24px;
   }
-  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 14px 0 28px; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-  th { color: var(--muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
-  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  table {
+    width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 14px;
+    font-variant-numeric: tabular-nums; margin: 16px 0 28px;
+  }
+  th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid var(--border); }
+  th {
+    color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.04em; border-bottom: 1.5px solid var(--text);
+  }
+  td.num, th.num { text-align: right; }
+  tbody tr:hover td { background: var(--surface); }
   .pos { color: var(--green); font-weight: 600; }
   .neg { color: var(--red); font-weight: 600; }
   .pill {
-    display: inline-block; padding: 1px 9px; border-radius: 999px;
-    font-size: 0.74rem; background: var(--surface-2); border: 1px solid var(--border); color: var(--muted);
+    font-family: var(--sans); display: inline-block; padding: 2px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.03em; vertical-align: middle;
+    background: var(--surface); border: 1px solid var(--border); color: var(--muted);
   }
   .callout {
     background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
-    border-radius: 8px; padding: 16px 20px; margin: 22px 0; font-size: 0.93rem; color: var(--muted);
+    border-radius: 8px; padding: 14px 18px; margin: 22px 0; font-size: 15.5px; line-height: 1.6;
   }
   .callout strong { color: var(--text); }
-  ul.caveats { margin: 12px 0 28px 20px; color: var(--muted); font-size: 0.92rem; }
-  ul.caveats li { margin-bottom: 8px; }
+  ul.caveats { margin: 12px 0 28px; padding-left: 1.1em; color: var(--muted); font-size: 15px; line-height: 1.65; }
+  ul.caveats li { margin: .35em 0 .6em; }
   .sources a { color: var(--accent); text-decoration: none; }
   .sources a:hover { text-decoration: underline; }
-  .sources li { margin-bottom: 6px; font-size: 0.9rem; }
+  .sources li { margin-bottom: 6px; font-family: var(--sans); font-size: 13.5px; }
   footer {
-    margin-top: 56px; padding: 28px 0 40px; border-top: 1px solid var(--border);
-    color: var(--muted); font-size: 0.85rem;
+    margin-top: 56px; padding: 24px 0 48px; border-top: 1px solid var(--border);
+    color: var(--muted); font-family: var(--sans); font-size: 13.5px; line-height: 1.55;
   }
   @media (max-width: 640px) {
-    h1 { font-size: 1.6rem; }
-    th, td { padding: 8px 8px; font-size: 0.84rem; }
+    th, td { padding: 8px 6px; font-size: 13px; }
   }
 </style>
 </head>
@@ -353,6 +367,64 @@
   </section>
 
   <section>
+    <h2>Case study: SpaceX (SPCX) — a prediction, on the record</h2>
+    <p class="section-note">
+      SpaceX prices its IPO after the close on <strong style="color:var(--text)">June 11, 2026</strong> — the day this section was written —
+      and begins trading June 12 on Nasdaq as <strong style="color:var(--text)">SPCX</strong>: 555.6M Class A shares at a fixed $135,
+      a ~$75B raise at a $1.75 trillion valuation, the largest IPO in history. The book closed 3.5–4x oversubscribed (~$250B in orders),
+      but the gray-market premium collapsed from ~60% in May to ~16% (~$157) by June 10. This is a forecast made <em>before</em> the first trade,
+      applying the factor framework above. Judge it against what actually happens.
+    </p>
+    <div class="cards">
+      <div class="card"><div class="value">$1.75T</div><div class="label">IPO valuation · $75B raise — largest in history</div></div>
+      <div class="card"><div class="value">~97x</div><div class="label">price/sales at listing ($18B 2025 revenue) — far past the worst P/S bucket</div></div>
+      <div class="card"><div class="value down">−$4.9B</div><div class="label">2025 net loss (EBITDA +$6.6B); loss driven by a $20B xAI investment</div></div>
+      <div class="card"><div class="value">~4%</div><div class="label">of the company floated — 30% of it earmarked for retail, 3x the mega-cap norm</div></div>
+    </div>
+
+    <h3>Scoring SPCX against the factors</h3>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>SpaceX</th><th>Signal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Scale (LTM sales ≥$1B)</td><td>$18B revenue; Starlink $11.4B growing ~50%</td><td><span class="pos">Strong positive</span></td></tr>
+        <tr><td>Valuation at listing (P/S &gt;40 → −59%)</td><td>~97x sales</td><td><span class="neg">Strong negative</span></td></tr>
+        <tr><td>Profitable at IPO</td><td>−$4.9B net loss</td><td><span class="neg">Negative</span></td></tr>
+        <tr><td>Dual-class founder control</td><td>Musk holds 82%+ of votes via 10:1 Class B</td><td><span class="pos">Mild positive</span></td></tr>
+        <tr><td>Underwriter tier</td><td>Goldman Sachs (structure), Morgan Stanley (aftermarket)</td><td><span class="pos">Positive</span></td></tr>
+        <tr><td>Company age</td><td>24 years old</td><td><span class="pos">Positive</span></td></tr>
+        <tr><td>Broken-IPO risk</td><td>Gray market ~16% above offer pre-listing</td><td><span class="pos">Likely avoided</span></td></tr>
+        <tr><td>Float &amp; lockup</td><td>~4% float; staged unlocks: up to 20% of insider shares after the <em>first earnings report</em> (+10% more if the stock is +30%), rolling 7% tranches at days 70–135, full release at day 180. Musk locked 366 days.</td><td><span class="neg">Fast float expansion — supply drag</span></td></tr>
+        <tr><td>Index inclusion</td><td>Ineligible for S&amp;P 500 (GAAP losses); Nasdaq-100 has no profitability requirement</td><td><span class="pos">Plausible near-term catalyst</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>The predicted trajectory</h3>
+    <table>
+      <thead>
+        <tr><th>Window</th><th>Prediction</th><th>Reasoning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Day 1 (Jun 12)</td><td>Opens up ~10–20%, near the gray-market ~$157 — solid, not euphoric</td><td>Fading gray-market premium; the unusually large 30% retail allocation pre-satisfies the demand that normally fuels day-one pops</td></tr>
+        <tr><td>Weeks 1–8</td><td>Volatile with an upward bias; squeeze-prone, possibly well above $160</td><td>~4% float + enormous attention is the classic small-float, divergent-opinion overpricing setup; Nasdaq-100 inclusion flows possible</td></tr>
+        <tr><td>Months 3–6 (Sep–Dec 2026)</td><td>The trajectory bends down: grinds lower from the summer high</td><td>Staged lockup expands float far faster than a normal IPO — up to 30% of insider shares after the first earnings print, then a 7% tranche every ~2–3 weeks; first public scrutiny of a $4.9B annual loss</td></tr>
+        <tr><td>Years 1–3</td><td>Lags the market from the $135 offer; day-one buyers fare meaningfully worse</td><td>The two most powerful factors collide — massive scale (good) vs ~97x sales while unprofitable (the worst valuation bucket averaged −59% market-adjusted). For the multiple to compress to even ~20x without the price falling, revenue must roughly 5x; 50% Starlink growth doesn't get there in three years</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Central case:</strong> SPCX ends 2026 above the $135 offer but below its summer high, then underperforms the S&amp;P over the
+      seasoned 1–3 year window — consistent with this report's bottom line that <em>"profitable and reasonably priced at listing"</em> beats
+      founder ownership. Allocations at $135 are the good seats (large-sales IPOs bought at the offer beat the market by +13% over 3 years);
+      chasing the open at $160+ is the historically losing trade. <strong>How this prediction breaks:</strong> the Musk premium. SpaceX is a
+      one-of-one — a 24-year-old category monopolist whose founder's other public company defied valuation gravity for a decade on retail
+      conviction. If SPCX trades as a belief asset rather than on fundamentals, the 97x multiple can persist far longer than the cohort
+      averages allow. That is the bull case; it is just not one this evidence base can underwrite.
+    </div>
+  </section>
+
+  <section>
     <h2>Methodology &amp; caveats</h2>
     <ul class="caveats">
       <li>All "current" prices are intraday snapshots from June 10, 2026 and will drift; exact percentages may vary by a few points depending on quote timing.</li>
@@ -362,6 +434,7 @@
       <li>In the factors section, figures marked "well-established"/"established" were verified against the cited primary studies; items marked "canonical" are standard findings from the IPO literature (Ritter 1991 and Ritter's data files) reported as published. Academic results are long-period averages and may not hold in any given year or for any given stock.</li>
       <li>2022–2024 individual prices are from stockanalysis.com as of June 11, 2026; cohort counts are Renaissance Capital's (≥$50M market cap, ex-SPACs). Ritter's cohort return averages (2022: −29.5% 3-yr; 2023: −30.9%) use his stricter operating-company definition (38, 54, and 72 IPOs in 2022–24) with returns through Dec 31, 2025 — the huge market-adjusted shortfalls partly reflect the strong S&amp;P rally over the same window.</li>
       <li>The fall-frequency statistics (56.1% / 57.1% below offer at 3 and 5 years) cover 1975–2021 IPOs and are measured from the offer price; measured from the first-day close the medians are worse (−25.7% at 3 years, −32.0% at 5).</li>
+      <li>The SpaceX section is a forecast written June 11, 2026, before SPCX's first trade, and is deliberately left unrevised as a test of the framework. Deal terms and financials are from the S-1 and contemporaneous press reports; the ~97x P/S uses the $1.75T target valuation over $18B 2025 consolidated revenue. Gray-market prices (Hyperliquid pre-IPO venue) are thinly traded and indicative only. Cohort averages from 9,253 historical IPOs may not describe a one-of-one mega-cap listing.</li>
     </ul>
   </section>
 
@@ -384,6 +457,11 @@
       <li><a href="https://site.warrington.ufl.edu/ritter/files/IPO-Statistics.pdf">Ritter — IPO Statistics (counts, return distributions, 1975–2025)</a> · <a href="https://site.warrington.ufl.edu/ritter/files/IPOs-and-SPACs.pdf">IPOs and SPACs tables</a></li>
       <li><a href="https://law.stanford.edu/wp-content/uploads/2022/07/2022-01-24-A-Sober-Look-At-SPACs-Yale-Journal-on-Regulation.pdf">Klausner, Ohlrogge &amp; Ruan — A Sober Look at SPACs (Yale J. on Regulation)</a></li>
       <li><a href="https://stockanalysis.com/ipos/2022/">stockanalysis.com — 2022 IPOs</a> · <a href="https://stockanalysis.com/ipos/2023/">2023</a> · <a href="https://stockanalysis.com/ipos/2024/">2024</a></li>
+      <li><a href="https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm">SEC — SpaceX S-1 registration statement</a></li>
+      <li><a href="https://www.bloomberg.com/news/articles/2026-06-09/spacex-ipo-draws-orders-for-multiple-times-the-shares-available">Bloomberg — SpaceX draws strong demand for record $75B IPO</a> · <a href="https://www.bloomberg.com/news/articles/2026-06-10/spacex-ipo-draws-billions-in-orders-from-middle-eastern-funds">Middle Eastern fund orders</a></li>
+      <li><a href="https://www.cnbc.com/2026/05/20/spacex-ipo-live-updates.html">CNBC — SpaceX IPO live updates</a> · <a href="https://capital.com/en-int/learn/ipo/spacex-ipo">Capital.com — SpaceX IPO timeline</a></li>
+      <li><a href="https://cryptobriefing.com/spacex-ipo-dual-class-shares-musk-control/">Crypto Briefing — dual-class structure and Musk voting control</a> · <a href="https://poole.ncsu.edu/thought-leadership/article/spacexs-ipo-a-small-slice-a-giant-valuation-and-a-new-playbook-for-public-markets/">NC State Poole — float, lockup, and retail allocation</a></li>
+      <li><a href="https://www.techtimes.com/articles/318170/20260610/spacex-ipo-order-books-close-four-times-oversubscribed-gray-market-slide-signals-shrinking-premium.htm">TechTimes — order books 4x oversubscribed, gray-market slide</a> · <a href="https://www.coindesk.com/markets/2026/06/10/spacex-s-most-active-pre-ipo-market-has-fallen-27-in-three-weeks">CoinDesk — pre-IPO market down 27% in three weeks</a></li>
     </ul>
   </section>
 

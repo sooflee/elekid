@@ -11,6 +11,9 @@ relative to their offer prices, as of June 10, 2026.
 - Winners are concentrated in AI infrastructure (CoreWeave +143%, Cerebras +29%) and stablecoins (Circle +~160%)
 - Fintech/BNPL and crypto listings dominate the losers (Klarna −59%, BitGo −70%)
 - The Renaissance IPO Index returned +5% in 2025 vs +18% for the S&P 500, then −8% in Q1 2026
+- Includes an on-the-record prediction for the SpaceX IPO (SPCX, June 12, 2026), written before
+  its first trade: a ~10–20% day-one pop, a squeeze-prone first summer, a downward bend during
+  the fall lockup cascade, and market-lagging 1–3 year returns from the $135 offer
 
 ## Data sources
 
