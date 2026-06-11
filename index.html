@@ -103,6 +103,7 @@
 
 <header>
   <div class="container">
+    <div class="kick">Market Research · IPOs 2022–2026</div>
     <h1>Stock Performance After IPO</h1>
     <p class="subtitle">How US IPOs from 2022 through 2026 have performed relative to their offer prices — winners, losers, how often and when IPO stocks fall, and the factors that predict it.</p>
     <span class="asof">Data as of June 10–11, 2026 · prices are intraday snapshots</span>
@@ -110,6 +111,169 @@
 </header>
 
 <main class="container">
+
+  <section>
+    <h2>What makes IPO stocks go up or down?</h2>
+    <p class="section-note">
+      Decades of academic research — most of it from Jay Ritter's IPO dataset (1980–2024, 9,253 IPOs) — shows the average IPO
+      <strong style="color:var(--text)">underperforms the market by about 3.6% per year for five years</strong> after listing.
+      But the averages hide enormous spreads between cohorts. These are the factors with the strongest evidence.
+    </p>
+
+    <h3>Does founder ownership predict better returns?</h3>
+    <p class="section-note" style="margin-bottom:10px">
+      The evidence leans <strong style="color:var(--text)">yes, with caveats</strong>. Founder-CEO firms among large US companies earned
+      +8.3%/year benchmark-adjusted over 1993–2002 (+4.4%/year after controlling for firm, CEO, and industry characteristics — so it is not
+      purely a tech-sector artifact). Dual-class IPOs, the classic founder-control structure, returned +29.5% over 3 years vs +18.0% for
+      single-class IPOs; among tech IPOs, dual-class <em>beat</em> the market by 13.8% while single-class lagged by 15.4%.
+    </p>
+    <div class="callout">
+      <strong>The catch:</strong> dual-class firms command a valuation premium <em>at</em> the IPO that dissipates as the firm matures —
+      founder control looks like an early-life-cycle advantage, not a permanent one. The effect is also weaker than profitability or scale,
+      and institutional studies report mixed results for mature dual-class firms. Read it as a mild positive signal, strongest in tech and
+      in the first years after listing.
+    </div>
+
+    <h3>IPO-specific factors, ranked by evidence</h3>
+    <div class="chart-wrap"><canvas id="chartFactors" height="300"></canvas></div>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>3-yr market-adjusted return</th><th>Evidence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Scale (LTM sales ≥$1B vs &lt;$100M)</td><td><span class="pos">−2%</span> vs <span class="neg">−34%</span> (&lt;$10M: −52%)</td><td>Well-established; one of the largest effects</td></tr>
+        <tr><td>Valuation at listing (P/S &lt;5 vs &gt;40)</td><td><span class="pos">−1%</span> vs <span class="neg">−59%</span></td><td>Well-established</td></tr>
+        <tr><td>Profitable vs unprofitable at IPO</td><td><span class="pos">−13%</span> vs <span class="neg">−31%</span></td><td>Well-established</td></tr>
+        <tr><td>Dual-class (founder control) vs single</td><td><span class="pos">−7%</span> vs <span class="neg">−22%</span></td><td>Established; premium fades with age</td></tr>
+        <tr><td>VC-backed vs not</td><td><span class="pos">−14%</span> vs <span class="neg">−25%</span></td><td>Established; reverses in bubbles (1999–2000)</td></tr>
+        <tr><td>Broken IPO (negative first day)</td><td><span class="neg">−32%</span>; two-thirds negative after 3 yrs</td><td>Established</td></tr>
+        <tr><td>Underwriter tier</td><td>Bottom-tier banks ≈ <span class="neg">−89%</span> (2012–24) vs ≈flat for top banks</td><td>Canonical (Ritter data)</td></tr>
+        <tr><td>Company age at IPO</td><td>Strong monotone: younger = worse</td><td>Canonical (Ritter 1991)</td></tr>
+        <tr><td>Hot-market timing</td><td>High-volume IPO years perform worst</td><td>Canonical (windows of opportunity)</td></tr>
+        <tr><td>Lockup expiration (~180 days)</td><td>≈ −1 to −3% around the unlock</td><td>Established but modest</td></tr>
+        <tr><td>Small + unprofitable combination</td><td><span class="neg">−41%</span> vs <span class="neg">−3%</span> for large profitable firms</td><td>Well-established; the two factors compound</td></tr>
+        <tr><td>Listing route: SPAC merger vs IPO</td><td>deSPACs ≈ <span class="neg">−46 to −62%</span> one-year returns, far worse than traditional IPOs</td><td>Canonical (Ritter; Klausner et al., "A Sober Look at SPACs")</td></tr>
+        <tr><td>Entry price: offer vs first close</td><td>Large-sales IPOs bought <em>at the offer</em> beat the market (<span class="pos">+13%</span> over 3 yrs); day-one buyers fare far worse</td><td>Well-established</td></tr>
+      </tbody>
+    </table>
+
+    <h3>General drivers of any stock's direction</h3>
+    <ul class="caveats">
+      <li><strong style="color:var(--text)">Earnings surprises</strong> — the strongest short-horizon driver; stocks drift in the direction of the surprise for weeks (post-earnings-announcement drift). Well-established.</li>
+      <li><strong style="color:var(--text)">Interest rates &amp; macro</strong> — rising real rates compress valuations, hitting long-duration growth stocks (like recent IPOs) hardest. Well-established mechanism.</li>
+      <li><strong style="color:var(--text)">Momentum</strong> — 6–12 month winners keep winning on average; among the most replicated anomalies, but prone to violent crashes.</li>
+      <li><strong style="color:var(--text)">Float &amp; short constraints</strong> — small floats with divergent opinions produce overpricing that corrects as float grows; high short interest predicts underperformance.</li>
+      <li><strong style="color:var(--text)">Dilution vs buybacks</strong> — net share issuers underperform net repurchasers; robust cross-sectional finding.</li>
+      <li><strong style="color:var(--text)">Index inclusion</strong> — one-time positive pop on S&amp;P 500 addition; the effect has shrunk over time. Weak/diminishing.</li>
+      <li><strong style="color:var(--text)">Institutional ownership</strong> — rising ownership accompanies outperformance, but causality is murky. Mixed.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Bottom line:</strong> the most powerful predictors for a post-IPO stock are scale and profitability at listing, the valuation
+      multiple, the era (hot vs cold IPO market), underwriter tier, VC backing, and founder/dual-class structure — then ongoing earnings
+      surprises and the rate environment once the stock is seasoned. Founder ownership helps, but it is a weaker signal than
+      "was it profitable and reasonably priced when it listed." This maps onto the 2025–26 cohorts detailed later in this report: Klarna and Chime
+      (unprofitable fintechs at rich multiples) fit the loser profile; CoreWeave and Cerebras (large scale, real revenue) fit the survivors.
+    </div>
+  </section>
+
+  <section>
+    <h2>Case study: SpaceX (SPCX) — a prediction, on the record</h2>
+    <p class="section-note">
+      SpaceX prices its IPO after the close on <strong style="color:var(--text)">June 11, 2026</strong> — the day this section was written —
+      and begins trading June 12 on Nasdaq as <strong style="color:var(--text)">SPCX</strong>: 555.6M Class A shares at a fixed $135,
+      a ~$75B raise at a $1.75 trillion valuation, the largest IPO in history. The book closed 3.5–4x oversubscribed (~$250B in orders),
+      but the gray-market premium collapsed from ~60% in May to ~16% (~$157) by June 10. This is a forecast made <em>before</em> the first trade,
+      applying the factor framework above. Judge it against what actually happens.
+    </p>
+    <div class="cards">
+      <div class="card"><div class="value">$1.75T</div><div class="label">IPO valuation · $75B raise — largest in history</div></div>
+      <div class="card"><div class="value">~97x</div><div class="label">price/sales at listing ($18B 2025 revenue) — far past the worst P/S bucket</div></div>
+      <div class="card"><div class="value down">−$4.9B</div><div class="label">2025 net loss (EBITDA +$6.6B); loss driven by a $20B xAI investment</div></div>
+      <div class="card"><div class="value">~4%</div><div class="label">of the company floated — 30% of it earmarked for retail, 3x the mega-cap norm</div></div>
+    </div>
+
+    <h3>Scoring SPCX against the factors</h3>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>SpaceX</th><th>Signal</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Scale (LTM sales ≥$1B)</td><td>$18B revenue; Starlink $11.4B growing ~50%</td><td><span class="pos">Strong positive</span></td></tr>
+        <tr><td>Valuation at listing (P/S &gt;40 → −59%)</td><td>~97x sales</td><td><span class="neg">Strong negative</span></td></tr>
+        <tr><td>Profitable at IPO</td><td>−$4.9B net loss</td><td><span class="neg">Negative</span></td></tr>
+        <tr><td>Dual-class founder control</td><td>Musk holds 82%+ of votes via 10:1 Class B</td><td><span class="pos">Mild positive</span></td></tr>
+        <tr><td>Underwriter tier</td><td>Goldman Sachs (structure), Morgan Stanley (aftermarket)</td><td><span class="pos">Positive</span></td></tr>
+        <tr><td>Company age</td><td>24 years old</td><td><span class="pos">Positive</span></td></tr>
+        <tr><td>Broken-IPO risk</td><td>Gray market ~16% above offer pre-listing</td><td><span class="pos">Likely avoided</span></td></tr>
+        <tr><td>Float &amp; lockup</td><td>~4% float; staged unlocks: up to 20% of insider shares after the <em>first earnings report</em> (+10% more if the stock is +30%), rolling 7% tranches at days 70–135, full release at day 180. Musk locked 366 days.</td><td><span class="neg">Fast float expansion — supply drag</span></td></tr>
+        <tr><td>Index inclusion</td><td>Ineligible for S&amp;P 500 (GAAP losses); Nasdaq-100 has no profitability requirement</td><td><span class="pos">Plausible near-term catalyst</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>The predicted trajectory</h3>
+    <table>
+      <thead>
+        <tr><th>Window</th><th>Prediction</th><th>Reasoning</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Day 1 (Jun 12)</td><td>Opens up ~10–20%, near the gray-market ~$157 — solid, not euphoric</td><td>Fading gray-market premium; the unusually large 30% retail allocation pre-satisfies the demand that normally fuels day-one pops</td></tr>
+        <tr><td>Weeks 1–8</td><td>Volatile with an upward bias; squeeze-prone, possibly well above $160</td><td>~4% float + enormous attention is the classic small-float, divergent-opinion overpricing setup; Nasdaq-100 inclusion flows possible</td></tr>
+        <tr><td>Months 3–6 (Sep–Dec 2026)</td><td>The trajectory bends down: grinds lower from the summer high</td><td>Staged lockup expands float far faster than a normal IPO — up to 30% of insider shares after the first earnings print, then a 7% tranche every ~2–3 weeks; first public scrutiny of a $4.9B annual loss</td></tr>
+        <tr><td>Years 1–3</td><td>Lags the market from the $135 offer; day-one buyers fare meaningfully worse</td><td>The two most powerful factors collide — massive scale (good) vs ~97x sales while unprofitable (the worst valuation bucket averaged −59% market-adjusted). For the multiple to compress to even ~20x without the price falling, revenue must roughly 5x; 50% Starlink growth doesn't get there in three years</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Central case:</strong> SPCX ends 2026 above the $135 offer but below its summer high, then underperforms the S&amp;P over the
+      seasoned 1–3 year window — consistent with this report's bottom line that <em>"profitable and reasonably priced at listing"</em> beats
+      founder ownership. Allocations at $135 are the good seats (large-sales IPOs bought at the offer beat the market by +13% over 3 years);
+      chasing the open at $160+ is the historically losing trade. <strong>How this prediction breaks:</strong> the Musk premium. SpaceX is a
+      one-of-one — a 24-year-old category monopolist whose founder's other public company defied valuation gravity for a decade on retail
+      conviction. If SPCX trades as a belief asset rather than on fundamentals, the 97x multiple can persist far longer than the cohort
+      averages allow. That is the bull case; it is just not one this evidence base can underwrite.
+    </div>
+  </section>
+
+  <section>
+    <h2>How often do IPOs fall — and when?</h2>
+    <p class="section-note">
+      Across 9,195 US operating-company IPOs from 1975–2021 (Ritter's data), falling below the offer price is the
+      <strong style="color:var(--text)">norm, not the exception</strong>:
+    </p>
+    <div class="cards">
+      <div class="card"><div class="value down">56.1%</div><div class="label">below offer price 3 years after IPO (35.0% lost more than half)</div></div>
+      <div class="card"><div class="value down">57.1%</div><div class="label">below offer price 5 years after IPO (39.7% lost more than half)</div></div>
+      <div class="card"><div class="value down">−16.6%</div><div class="label">median 3-yr return from offer — vs a +38.5% mean, pulled up by rare huge winners</div></div>
+      <div class="card"><div class="value down">−25.7%</div><div class="label">median 3-yr return from the first-day close — what a day-one buyer gets</div></div>
+    </div>
+
+    <h3>When the declines happen</h3>
+    <p class="section-note" style="margin-bottom:10px">
+      The underperformance is <strong style="color:var(--text)">back-loaded</strong>, and the verified numbers give a rough timetable.
+      Versus size-matched firms (1980–2024), IPOs lag by only −0.6% in the first six months, then
+      <strong style="color:var(--text)">−5.5% in months 7–12 and −7.9% in year two</strong>, fading to −3.8% in year three.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Window</th><th>What happens</th><th>Evidence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Day 1</td><td>Average ~19% pop from offer to close — captured by IPO allocants, not aftermarket buyers</td><td>Well-established</td></tr>
+        <tr><td>~Day 25</td><td>Quiet period ends; underwriter analysts initiate (almost always positive) coverage — a mild, anticipated bump</td><td>Established, modest</td></tr>
+        <tr><td>Months 1–6</td><td>Roughly market-like performance (−0.6% vs size-matched firms); first 1–2 earnings reports are the main single-stock risk</td><td>Well-established</td></tr>
+        <tr><td>~Day 180</td><td>Lockup expires: ~1–3% abnormal drop around the unlock with permanently higher volume, as insiders become free to sell</td><td>Established, modest but reliable</td></tr>
+        <tr><td>Months 7–24</td><td><strong style="color:var(--text)">The danger zone</strong> — the bulk of underperformance: −5.5% (months 7–12) and −7.9% (year 2) vs size-matched firms, as lockups clear, hype fades, and early growth narratives meet reported numbers</td><td>Well-established</td></tr>
+        <tr><td>Year 3+</td><td>Underperformance fades; survivors trade like ordinary stocks of their size and sector</td><td>Established</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <strong>Can you time it?</strong> Not precisely — these are averages, not guarantees for any one stock. But the shape is consistent:
+      the seller's moment is the first-day pop; the buyer's risk concentrates in months 7–24; and a stock that survives to year three with
+      the business intact has typically stopped behaving like "an IPO." Watch the lockup date (in the S-1), the first two earnings reports,
+      and whether insiders actually sell when they can.
+    </div>
+  </section>
 
   <section>
     <h2>The headline</h2>
@@ -252,46 +416,6 @@
   </section>
 
   <section>
-    <h2>How often do IPOs fall — and when?</h2>
-    <p class="section-note">
-      Across 9,195 US operating-company IPOs from 1975–2021 (Ritter's data), falling below the offer price is the
-      <strong style="color:var(--text)">norm, not the exception</strong>:
-    </p>
-    <div class="cards">
-      <div class="card"><div class="value down">56.1%</div><div class="label">below offer price 3 years after IPO (35.0% lost more than half)</div></div>
-      <div class="card"><div class="value down">57.1%</div><div class="label">below offer price 5 years after IPO (39.7% lost more than half)</div></div>
-      <div class="card"><div class="value down">−16.6%</div><div class="label">median 3-yr return from offer — vs a +38.5% mean, pulled up by rare huge winners</div></div>
-      <div class="card"><div class="value down">−25.7%</div><div class="label">median 3-yr return from the first-day close — what a day-one buyer gets</div></div>
-    </div>
-
-    <h3>When the declines happen</h3>
-    <p class="section-note" style="margin-bottom:10px">
-      The underperformance is <strong style="color:var(--text)">back-loaded</strong>, and the verified numbers give a rough timetable.
-      Versus size-matched firms (1980–2024), IPOs lag by only −0.6% in the first six months, then
-      <strong style="color:var(--text)">−5.5% in months 7–12 and −7.9% in year two</strong>, fading to −3.8% in year three.
-    </p>
-    <table>
-      <thead>
-        <tr><th>Window</th><th>What happens</th><th>Evidence</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Day 1</td><td>Average ~19% pop from offer to close — captured by IPO allocants, not aftermarket buyers</td><td>Well-established</td></tr>
-        <tr><td>~Day 25</td><td>Quiet period ends; underwriter analysts initiate (almost always positive) coverage — a mild, anticipated bump</td><td>Established, modest</td></tr>
-        <tr><td>Months 1–6</td><td>Roughly market-like performance (−0.6% vs size-matched firms); first 1–2 earnings reports are the main single-stock risk</td><td>Well-established</td></tr>
-        <tr><td>~Day 180</td><td>Lockup expires: ~1–3% abnormal drop around the unlock with permanently higher volume, as insiders become free to sell</td><td>Established, modest but reliable</td></tr>
-        <tr><td>Months 7–24</td><td><strong style="color:var(--text)">The danger zone</strong> — the bulk of underperformance: −5.5% (months 7–12) and −7.9% (year 2) vs size-matched firms, as lockups clear, hype fades, and early growth narratives meet reported numbers</td><td>Well-established</td></tr>
-        <tr><td>Year 3+</td><td>Underperformance fades; survivors trade like ordinary stocks of their size and sector</td><td>Established</td></tr>
-      </tbody>
-    </table>
-    <div class="callout">
-      <strong>Can you time it?</strong> Not precisely — these are averages, not guarantees for any one stock. But the shape is consistent:
-      the seller's moment is the first-day pop; the buyer's risk concentrates in months 7–24; and a stock that survives to year three with
-      the business intact has typically stopped behaving like "an IPO." Watch the lockup date (in the S-1), the first two earnings reports,
-      and whether insiders actually sell when they can.
-    </div>
-  </section>
-
-  <section>
     <h2>Takeaways</h2>
     <ul class="caveats" style="color:var(--text)">
       <li><strong>The pop fades.</strong> Big first-day gains (Figma's +250% day one was a record for a billion-dollar IPO) say little about where a stock trades a year later.</li>
@@ -299,129 +423,6 @@
       <li><strong>Fintech and crypto listings have been punishing</strong> — Klarna −59%, Chime −37%, eToro −33%, Gemini −61%, BitGo −70%.</li>
       <li><strong>The index lagged badly.</strong> An investor holding the IPO cohort broadly (Renaissance IPO Index) earned +5% in 2025 vs +18% for the S&amp;P 500, then lost −8% in Q1 2026.</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>What makes IPO stocks go up or down?</h2>
-    <p class="section-note">
-      Decades of academic research — most of it from Jay Ritter's IPO dataset (1980–2024, 9,253 IPOs) — shows the average IPO
-      <strong style="color:var(--text)">underperforms the market by about 3.6% per year for five years</strong> after listing.
-      But the averages hide enormous spreads between cohorts. These are the factors with the strongest evidence.
-    </p>
-
-    <h3>Does founder ownership predict better returns?</h3>
-    <p class="section-note" style="margin-bottom:10px">
-      The evidence leans <strong style="color:var(--text)">yes, with caveats</strong>. Founder-CEO firms among large US companies earned
-      +8.3%/year benchmark-adjusted over 1993–2002 (+4.4%/year after controlling for firm, CEO, and industry characteristics — so it is not
-      purely a tech-sector artifact). Dual-class IPOs, the classic founder-control structure, returned +29.5% over 3 years vs +18.0% for
-      single-class IPOs; among tech IPOs, dual-class <em>beat</em> the market by 13.8% while single-class lagged by 15.4%.
-    </p>
-    <div class="callout">
-      <strong>The catch:</strong> dual-class firms command a valuation premium <em>at</em> the IPO that dissipates as the firm matures —
-      founder control looks like an early-life-cycle advantage, not a permanent one. The effect is also weaker than profitability or scale,
-      and institutional studies report mixed results for mature dual-class firms. Read it as a mild positive signal, strongest in tech and
-      in the first years after listing.
-    </div>
-
-    <h3>IPO-specific factors, ranked by evidence</h3>
-    <div class="chart-wrap"><canvas id="chartFactors" height="300"></canvas></div>
-    <table>
-      <thead>
-        <tr><th>Factor</th><th>3-yr market-adjusted return</th><th>Evidence</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Scale (LTM sales ≥$1B vs &lt;$100M)</td><td><span class="pos">−2%</span> vs <span class="neg">−34%</span> (&lt;$10M: −52%)</td><td>Well-established; one of the largest effects</td></tr>
-        <tr><td>Valuation at listing (P/S &lt;5 vs &gt;40)</td><td><span class="pos">−1%</span> vs <span class="neg">−59%</span></td><td>Well-established</td></tr>
-        <tr><td>Profitable vs unprofitable at IPO</td><td><span class="pos">−13%</span> vs <span class="neg">−31%</span></td><td>Well-established</td></tr>
-        <tr><td>Dual-class (founder control) vs single</td><td><span class="pos">−7%</span> vs <span class="neg">−22%</span></td><td>Established; premium fades with age</td></tr>
-        <tr><td>VC-backed vs not</td><td><span class="pos">−14%</span> vs <span class="neg">−25%</span></td><td>Established; reverses in bubbles (1999–2000)</td></tr>
-        <tr><td>Broken IPO (negative first day)</td><td><span class="neg">−32%</span>; two-thirds negative after 3 yrs</td><td>Established</td></tr>
-        <tr><td>Underwriter tier</td><td>Bottom-tier banks ≈ <span class="neg">−89%</span> (2012–24) vs ≈flat for top banks</td><td>Canonical (Ritter data)</td></tr>
-        <tr><td>Company age at IPO</td><td>Strong monotone: younger = worse</td><td>Canonical (Ritter 1991)</td></tr>
-        <tr><td>Hot-market timing</td><td>High-volume IPO years perform worst</td><td>Canonical (windows of opportunity)</td></tr>
-        <tr><td>Lockup expiration (~180 days)</td><td>≈ −1 to −3% around the unlock</td><td>Established but modest</td></tr>
-        <tr><td>Small + unprofitable combination</td><td><span class="neg">−41%</span> vs <span class="neg">−3%</span> for large profitable firms</td><td>Well-established; the two factors compound</td></tr>
-        <tr><td>Listing route: SPAC merger vs IPO</td><td>deSPACs ≈ <span class="neg">−46 to −62%</span> one-year returns, far worse than traditional IPOs</td><td>Canonical (Ritter; Klausner et al., "A Sober Look at SPACs")</td></tr>
-        <tr><td>Entry price: offer vs first close</td><td>Large-sales IPOs bought <em>at the offer</em> beat the market (<span class="pos">+13%</span> over 3 yrs); day-one buyers fare far worse</td><td>Well-established</td></tr>
-      </tbody>
-    </table>
-
-    <h3>General drivers of any stock's direction</h3>
-    <ul class="caveats">
-      <li><strong style="color:var(--text)">Earnings surprises</strong> — the strongest short-horizon driver; stocks drift in the direction of the surprise for weeks (post-earnings-announcement drift). Well-established.</li>
-      <li><strong style="color:var(--text)">Interest rates &amp; macro</strong> — rising real rates compress valuations, hitting long-duration growth stocks (like recent IPOs) hardest. Well-established mechanism.</li>
-      <li><strong style="color:var(--text)">Momentum</strong> — 6–12 month winners keep winning on average; among the most replicated anomalies, but prone to violent crashes.</li>
-      <li><strong style="color:var(--text)">Float &amp; short constraints</strong> — small floats with divergent opinions produce overpricing that corrects as float grows; high short interest predicts underperformance.</li>
-      <li><strong style="color:var(--text)">Dilution vs buybacks</strong> — net share issuers underperform net repurchasers; robust cross-sectional finding.</li>
-      <li><strong style="color:var(--text)">Index inclusion</strong> — one-time positive pop on S&amp;P 500 addition; the effect has shrunk over time. Weak/diminishing.</li>
-      <li><strong style="color:var(--text)">Institutional ownership</strong> — rising ownership accompanies outperformance, but causality is murky. Mixed.</li>
-    </ul>
-
-    <div class="callout">
-      <strong>Bottom line:</strong> the most powerful predictors for a post-IPO stock are scale and profitability at listing, the valuation
-      multiple, the era (hot vs cold IPO market), underwriter tier, VC backing, and founder/dual-class structure — then ongoing earnings
-      surprises and the rate environment once the stock is seasoned. Founder ownership helps, but it is a weaker signal than
-      "was it profitable and reasonably priced when it listed." This maps onto the 2025–26 cohorts above: Klarna and Chime
-      (unprofitable fintechs at rich multiples) fit the loser profile; CoreWeave and Cerebras (large scale, real revenue) fit the survivors.
-    </div>
-  </section>
-
-  <section>
-    <h2>Case study: SpaceX (SPCX) — a prediction, on the record</h2>
-    <p class="section-note">
-      SpaceX prices its IPO after the close on <strong style="color:var(--text)">June 11, 2026</strong> — the day this section was written —
-      and begins trading June 12 on Nasdaq as <strong style="color:var(--text)">SPCX</strong>: 555.6M Class A shares at a fixed $135,
-      a ~$75B raise at a $1.75 trillion valuation, the largest IPO in history. The book closed 3.5–4x oversubscribed (~$250B in orders),
-      but the gray-market premium collapsed from ~60% in May to ~16% (~$157) by June 10. This is a forecast made <em>before</em> the first trade,
-      applying the factor framework above. Judge it against what actually happens.
-    </p>
-    <div class="cards">
-      <div class="card"><div class="value">$1.75T</div><div class="label">IPO valuation · $75B raise — largest in history</div></div>
-      <div class="card"><div class="value">~97x</div><div class="label">price/sales at listing ($18B 2025 revenue) — far past the worst P/S bucket</div></div>
-      <div class="card"><div class="value down">−$4.9B</div><div class="label">2025 net loss (EBITDA +$6.6B); loss driven by a $20B xAI investment</div></div>
-      <div class="card"><div class="value">~4%</div><div class="label">of the company floated — 30% of it earmarked for retail, 3x the mega-cap norm</div></div>
-    </div>
-
-    <h3>Scoring SPCX against the factors</h3>
-    <table>
-      <thead>
-        <tr><th>Factor</th><th>SpaceX</th><th>Signal</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Scale (LTM sales ≥$1B)</td><td>$18B revenue; Starlink $11.4B growing ~50%</td><td><span class="pos">Strong positive</span></td></tr>
-        <tr><td>Valuation at listing (P/S &gt;40 → −59%)</td><td>~97x sales</td><td><span class="neg">Strong negative</span></td></tr>
-        <tr><td>Profitable at IPO</td><td>−$4.9B net loss</td><td><span class="neg">Negative</span></td></tr>
-        <tr><td>Dual-class founder control</td><td>Musk holds 82%+ of votes via 10:1 Class B</td><td><span class="pos">Mild positive</span></td></tr>
-        <tr><td>Underwriter tier</td><td>Goldman Sachs (structure), Morgan Stanley (aftermarket)</td><td><span class="pos">Positive</span></td></tr>
-        <tr><td>Company age</td><td>24 years old</td><td><span class="pos">Positive</span></td></tr>
-        <tr><td>Broken-IPO risk</td><td>Gray market ~16% above offer pre-listing</td><td><span class="pos">Likely avoided</span></td></tr>
-        <tr><td>Float &amp; lockup</td><td>~4% float; staged unlocks: up to 20% of insider shares after the <em>first earnings report</em> (+10% more if the stock is +30%), rolling 7% tranches at days 70–135, full release at day 180. Musk locked 366 days.</td><td><span class="neg">Fast float expansion — supply drag</span></td></tr>
-        <tr><td>Index inclusion</td><td>Ineligible for S&amp;P 500 (GAAP losses); Nasdaq-100 has no profitability requirement</td><td><span class="pos">Plausible near-term catalyst</span></td></tr>
-      </tbody>
-    </table>
-
-    <h3>The predicted trajectory</h3>
-    <table>
-      <thead>
-        <tr><th>Window</th><th>Prediction</th><th>Reasoning</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Day 1 (Jun 12)</td><td>Opens up ~10–20%, near the gray-market ~$157 — solid, not euphoric</td><td>Fading gray-market premium; the unusually large 30% retail allocation pre-satisfies the demand that normally fuels day-one pops</td></tr>
-        <tr><td>Weeks 1–8</td><td>Volatile with an upward bias; squeeze-prone, possibly well above $160</td><td>~4% float + enormous attention is the classic small-float, divergent-opinion overpricing setup; Nasdaq-100 inclusion flows possible</td></tr>
-        <tr><td>Months 3–6 (Sep–Dec 2026)</td><td>The trajectory bends down: grinds lower from the summer high</td><td>Staged lockup expands float far faster than a normal IPO — up to 30% of insider shares after the first earnings print, then a 7% tranche every ~2–3 weeks; first public scrutiny of a $4.9B annual loss</td></tr>
-        <tr><td>Years 1–3</td><td>Lags the market from the $135 offer; day-one buyers fare meaningfully worse</td><td>The two most powerful factors collide — massive scale (good) vs ~97x sales while unprofitable (the worst valuation bucket averaged −59% market-adjusted). For the multiple to compress to even ~20x without the price falling, revenue must roughly 5x; 50% Starlink growth doesn't get there in three years</td></tr>
-      </tbody>
-    </table>
-
-    <div class="callout">
-      <strong>Central case:</strong> SPCX ends 2026 above the $135 offer but below its summer high, then underperforms the S&amp;P over the
-      seasoned 1–3 year window — consistent with this report's bottom line that <em>"profitable and reasonably priced at listing"</em> beats
-      founder ownership. Allocations at $135 are the good seats (large-sales IPOs bought at the offer beat the market by +13% over 3 years);
-      chasing the open at $160+ is the historically losing trade. <strong>How this prediction breaks:</strong> the Musk premium. SpaceX is a
-      one-of-one — a 24-year-old category monopolist whose founder's other public company defied valuation gravity for a decade on retail
-      conviction. If SPCX trades as a belief asset rather than on fundamentals, the 97x multiple can persist far longer than the cohort
-      averages allow. That is the bull case; it is just not one this evidence base can underwrite.
-    </div>
   </section>
 
   <section>
@@ -474,11 +475,12 @@
 </footer>
 
 <script>
-const axisColor = '#9aa1b2';
-const gridColor = '#2a2f3e';
+const axisColor = '#6f6a62';
+const gridColor = '#e6e1d8';
+Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, system-ui, sans-serif";
 
 function barColors(values) {
-  return values.map(v => v >= 0 ? 'rgba(52, 211, 153, 0.75)' : 'rgba(248, 113, 113, 0.75)');
+  return values.map(v => v >= 0 ? 'rgba(31, 111, 84, 0.7)' : 'rgba(179, 56, 46, 0.65)');
 }
 
 function makeChart(id, title, labels, values) {
@@ -493,7 +495,7 @@ function makeChart(id, title, labels, values) {
       responsive: true,
       plugins: {
         legend: { display: false },
-        title: { display: true, text: title, color: '#e8eaf0', font: { size: 14, weight: '600' } },
+        title: { display: true, text: title, color: '#1c1b19', font: { size: 14, weight: '600' } },
         tooltip: { callbacks: { label: ctx => (ctx.raw > 0 ? '+' : '') + ctx.raw + '% from offer' } }
       },
       scales: {
@@ -524,8 +526,8 @@ new Chart(document.getElementById('chartFactors'), {
   data: {
     labels: ['Scale: sales ≥$1B vs <$100M', 'Valuation: P/S <5 vs >40', 'Profitable vs unprofitable', 'VC-backed vs not', 'Dual-class vs single-class'],
     datasets: [
-      { label: 'Favorable cohort', data: [-2.1, -1.3, -13.0, -13.6, -6.7], backgroundColor: 'rgba(52, 211, 153, 0.75)', borderRadius: 4 },
-      { label: 'Unfavorable cohort', data: [-34.3, -58.5, -30.7, -25.2, -22.0], backgroundColor: 'rgba(248, 113, 113, 0.75)', borderRadius: 4 }
+      { label: 'Favorable cohort', data: [-2.1, -1.3, -13.0, -13.6, -6.7], backgroundColor: 'rgba(31, 111, 84, 0.7)', borderRadius: 4 },
+      { label: 'Unfavorable cohort', data: [-34.3, -58.5, -30.7, -25.2, -22.0], backgroundColor: 'rgba(179, 56, 46, 0.65)', borderRadius: 4 }
     ]
   },
   options: {
@@ -533,7 +535,7 @@ new Chart(document.getElementById('chartFactors'), {
     responsive: true,
     plugins: {
       legend: { labels: { color: axisColor } },
-      title: { display: true, text: '3-year market-adjusted IPO returns by factor (Ritter, 1980–2024)', color: '#e8eaf0', font: { size: 14, weight: '600' } },
+      title: { display: true, text: '3-year market-adjusted IPO returns by factor (Ritter, 1980–2024)', color: '#1c1b19', font: { size: 14, weight: '600' } },
       tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw + '% vs market' } }
     },
     scales: {
