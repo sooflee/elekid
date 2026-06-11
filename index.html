@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPO Performance Report — 2025 &amp; 2026 US IPOs</title>
-<meta name="description" content="How US IPOs from 2025 and 2026 have performed relative to their offer prices, as of June 10, 2026.">
+<title>IPO Performance Report — US IPOs 2022–2026</title>
+<meta name="description" content="How US IPOs from 2022 through 2026 have performed relative to their offer prices, how often and when IPO stocks fall, and the factors that predict it.">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -90,8 +90,8 @@
 <header>
   <div class="container">
     <h1>Stock Performance After IPO</h1>
-    <p class="subtitle">How US IPOs from 2025 and 2026 year-to-date have performed relative to their offer prices — winners, losers, and what the aggregate numbers say.</p>
-    <span class="asof">Data as of June 10, 2026 · prices are intraday snapshots</span>
+    <p class="subtitle">How US IPOs from 2022 through 2026 have performed relative to their offer prices — winners, losers, how often and when IPO stocks fall, and the factors that predict it.</p>
+    <span class="asof">Data as of June 10–11, 2026 · prices are intraday snapshots</span>
   </div>
 </header>
 
@@ -187,6 +187,97 @@
   </section>
 
   <section>
+    <h2>Earlier cohorts: 2022–2024</h2>
+    <p class="section-note">
+      The post-2021 bust years were tiny — 2022 saw just <strong style="color:var(--text)">71 IPOs raising $7.7B</strong> (vs 397 raising $142.4B in 2021),
+      recovering to 108 IPOs / $19.4B in 2023 and 150 / $29.6B in 2024. With more time in the market, these cohorts show the classic IPO pattern:
+      a few enormous winners, a money-losing median. Per Ritter's data (through 12/31/25), the average 2022 IPO's 3-year buy-and-hold return was
+      <strong style="color:var(--text)">−29.5%</strong> (−72.2% market-adjusted) and 2023's was −30.9% (−88.3% market-adjusted) — the worst
+      market-adjusted cohorts in decades, because the S&amp;P rallied while small IPOs collapsed. The big names did far better:
+    </p>
+
+    <div class="chart-wrap"><canvas id="chart2224" height="380"></canvas></div>
+
+    <table>
+      <thead>
+        <tr><th>Company</th><th>Year</th><th>Sector</th><th class="num">IPO price</th><th class="num">Price (6/11/26)</th><th class="num">Change</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Credo Technology</td><td>2022</td><td>Connectivity chips</td><td class="num">$10.00</td><td class="num">$237.68</td><td class="num pos">+2,277%</td></tr>
+        <tr><td>Astera Labs</td><td>2024</td><td>AI connectivity chips</td><td class="num">$36.00</td><td class="num">$330.86</td><td class="num pos">+819%</td></tr>
+        <tr><td>Arm Holdings</td><td>2023</td><td>Chip IP</td><td class="num">$51.00</td><td class="num">$307.43</td><td class="num pos">+503%</td></tr>
+        <tr><td>Reddit</td><td>2024</td><td>Social media</td><td class="num">$34.00</td><td class="num">$172.21</td><td class="num pos">+407%</td></tr>
+        <tr><td>Nextracker</td><td>2023</td><td>Solar equipment</td><td class="num">$24.00</td><td class="num">$111.95</td><td class="num pos">+366%</td></tr>
+        <tr><td>Cava Group</td><td>2023</td><td>Restaurants</td><td class="num">$22.00</td><td class="num">$81.56</td><td class="num pos">+271%</td></tr>
+        <tr><td>Viking Holdings</td><td>2024</td><td>Cruises</td><td class="num">$24.00</td><td class="num">$88.48</td><td class="num pos">+269%</td></tr>
+        <tr><td>UL Solutions</td><td>2024</td><td>Testing &amp; certification</td><td class="num">$28.00</td><td class="num">$97.38</td><td class="num pos">+248%</td></tr>
+        <tr><td>Amer Sports</td><td>2024</td><td>Sporting goods</td><td class="num">$13.00</td><td class="num">$33.76</td><td class="num pos">+160%</td></tr>
+        <tr><td>Rubrik</td><td>2024</td><td>Data security</td><td class="num">$32.00</td><td class="num">$71.32</td><td class="num pos">+123%</td></tr>
+        <tr><td>TPG</td><td>2022</td><td>Private equity</td><td class="num">$29.50</td><td class="num">$41.77</td><td class="num pos">+42%</td></tr>
+        <tr><td>Instacart (Maplebear)</td><td>2023</td><td>Grocery delivery</td><td class="num">$30.00</td><td class="num">$41.21</td><td class="num pos">+37%</td></tr>
+        <tr><td>Tempus AI</td><td>2024</td><td>Health AI</td><td class="num">$37.00</td><td class="num">$49.48</td><td class="num pos">+34%</td></tr>
+        <tr><td>Corebridge Financial</td><td>2022</td><td>Insurance</td><td class="num">$21.00</td><td class="num">$27.18</td><td class="num pos">+29%</td></tr>
+        <tr><td>ServiceTitan</td><td>2024</td><td>Trades software</td><td class="num">$71.00</td><td class="num">$71.39</td><td class="num pos">+1%</td></tr>
+        <tr><td>Birkenstock</td><td>2023</td><td>Footwear</td><td class="num">$46.00</td><td class="num">$43.95</td><td class="num neg">−4%</td></tr>
+        <tr><td>Waystar</td><td>2024</td><td>Healthcare payments</td><td class="num">$21.50</td><td class="num">$18.80</td><td class="num neg">−13%</td></tr>
+        <tr><td>Bausch + Lomb</td><td>2022</td><td>Eye care</td><td class="num">$18.00</td><td class="num">$15.26</td><td class="num neg">−15%</td></tr>
+        <tr><td>Kenvue</td><td>2023</td><td>Consumer health</td><td class="num">$22.00</td><td class="num">$18.05</td><td class="num neg">−18%</td></tr>
+        <tr><td>Lineage</td><td>2024</td><td>Cold storage REIT</td><td class="num">$78.00</td><td class="num">$44.33</td><td class="num neg">−43%</td></tr>
+        <tr><td>Savers Value Village</td><td>2023</td><td>Thrift retail</td><td class="num">$18.00</td><td class="num">$9.52</td><td class="num neg">−47%</td></tr>
+        <tr><td>Klaviyo</td><td>2023</td><td>Marketing software</td><td class="num">$30.00</td><td class="num">$14.51</td><td class="num neg">−52%</td></tr>
+        <tr><td>Mobileye</td><td>2022</td><td>Autonomous driving</td><td class="num">$21.00</td><td class="num">$9.14</td><td class="num neg">−56%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>Notice the skew:</strong> the cohort <em>averages</em> are deeply negative, yet this table of big names is mostly green.
+      That's selection — large, well-known deals do far better than the hundreds of small listings that make up each cohort
+      (2024's $100M+ deals averaged +29% at year-end while the full cohort was flat; 2023's averaged +27% vs +4% overall).
+      The handful of mega-winners (Credo, Astera, Arm, Reddit) also pull averages up while the median IPO loses money.
+    </div>
+  </section>
+
+  <section>
+    <h2>How often do IPOs fall — and when?</h2>
+    <p class="section-note">
+      Across 9,195 US operating-company IPOs from 1975–2021 (Ritter's data), falling below the offer price is the
+      <strong style="color:var(--text)">norm, not the exception</strong>:
+    </p>
+    <div class="cards">
+      <div class="card"><div class="value down">56.1%</div><div class="label">below offer price 3 years after IPO (35.0% lost more than half)</div></div>
+      <div class="card"><div class="value down">57.1%</div><div class="label">below offer price 5 years after IPO (39.7% lost more than half)</div></div>
+      <div class="card"><div class="value down">−16.6%</div><div class="label">median 3-yr return from offer — vs a +38.5% mean, pulled up by rare huge winners</div></div>
+      <div class="card"><div class="value down">−25.7%</div><div class="label">median 3-yr return from the first-day close — what a day-one buyer gets</div></div>
+    </div>
+
+    <h3>When the declines happen</h3>
+    <p class="section-note" style="margin-bottom:10px">
+      The underperformance is <strong style="color:var(--text)">back-loaded</strong>, and the verified numbers give a rough timetable.
+      Versus size-matched firms (1980–2024), IPOs lag by only −0.6% in the first six months, then
+      <strong style="color:var(--text)">−5.5% in months 7–12 and −7.9% in year two</strong>, fading to −3.8% in year three.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Window</th><th>What happens</th><th>Evidence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Day 1</td><td>Average ~19% pop from offer to close — captured by IPO allocants, not aftermarket buyers</td><td>Well-established</td></tr>
+        <tr><td>~Day 25</td><td>Quiet period ends; underwriter analysts initiate (almost always positive) coverage — a mild, anticipated bump</td><td>Established, modest</td></tr>
+        <tr><td>Months 1–6</td><td>Roughly market-like performance (−0.6% vs size-matched firms); first 1–2 earnings reports are the main single-stock risk</td><td>Well-established</td></tr>
+        <tr><td>~Day 180</td><td>Lockup expires: ~1–3% abnormal drop around the unlock with permanently higher volume, as insiders become free to sell</td><td>Established, modest but reliable</td></tr>
+        <tr><td>Months 7–24</td><td><strong style="color:var(--text)">The danger zone</strong> — the bulk of underperformance: −5.5% (months 7–12) and −7.9% (year 2) vs size-matched firms, as lockups clear, hype fades, and early growth narratives meet reported numbers</td><td>Well-established</td></tr>
+        <tr><td>Year 3+</td><td>Underperformance fades; survivors trade like ordinary stocks of their size and sector</td><td>Established</td></tr>
+      </tbody>
+    </table>
+    <div class="callout">
+      <strong>Can you time it?</strong> Not precisely — these are averages, not guarantees for any one stock. But the shape is consistent:
+      the seller's moment is the first-day pop; the buyer's risk concentrates in months 7–24; and a stock that survives to year three with
+      the business intact has typically stopped behaving like "an IPO." Watch the lockup date (in the S-1), the first two earnings reports,
+      and whether insiders actually sell when they can.
+    </div>
+  </section>
+
+  <section>
     <h2>Takeaways</h2>
     <ul class="caveats" style="color:var(--text)">
       <li><strong>The pop fades.</strong> Big first-day gains (Figma's +250% day one was a record for a billion-dollar IPO) say little about where a stock trades a year later.</li>
@@ -235,6 +326,9 @@
         <tr><td>Company age at IPO</td><td>Strong monotone: younger = worse</td><td>Canonical (Ritter 1991)</td></tr>
         <tr><td>Hot-market timing</td><td>High-volume IPO years perform worst</td><td>Canonical (windows of opportunity)</td></tr>
         <tr><td>Lockup expiration (~180 days)</td><td>≈ −1 to −3% around the unlock</td><td>Established but modest</td></tr>
+        <tr><td>Small + unprofitable combination</td><td><span class="neg">−41%</span> vs <span class="neg">−3%</span> for large profitable firms</td><td>Well-established; the two factors compound</td></tr>
+        <tr><td>Listing route: SPAC merger vs IPO</td><td>deSPACs ≈ <span class="neg">−46 to −62%</span> one-year returns, far worse than traditional IPOs</td><td>Canonical (Ritter; Klausner et al., "A Sober Look at SPACs")</td></tr>
+        <tr><td>Entry price: offer vs first close</td><td>Large-sales IPOs bought <em>at the offer</em> beat the market (<span class="pos">+13%</span> over 3 yrs); day-one buyers fare far worse</td><td>Well-established</td></tr>
       </tbody>
     </table>
 
@@ -266,6 +360,8 @@
       <li>The 38.3%-above-offer figure and the "other notable 2025 names" returns are from Renaissance's mid/late-December 2025 snapshot, not June 2026. Given that Figma and Bullish have since flipped below offer, the share above offer today is likely lower.</li>
       <li>No verified June-2026 above/below-offer split exists for the full cohorts; a claim attempting one for recent 2026 deals failed independent verification and is excluded.</li>
       <li>In the factors section, figures marked "well-established"/"established" were verified against the cited primary studies; items marked "canonical" are standard findings from the IPO literature (Ritter 1991 and Ritter's data files) reported as published. Academic results are long-period averages and may not hold in any given year or for any given stock.</li>
+      <li>2022–2024 individual prices are from stockanalysis.com as of June 11, 2026; cohort counts are Renaissance Capital's (≥$50M market cap, ex-SPACs). Ritter's cohort return averages (2022: −29.5% 3-yr; 2023: −30.9%) use his stricter operating-company definition (38, 54, and 72 IPOs in 2022–24) with returns through Dec 31, 2025 — the huge market-adjusted shortfalls partly reflect the strong S&amp;P rally over the same window.</li>
+      <li>The fall-frequency statistics (56.1% / 57.1% below offer at 3 and 5 years) cover 1975–2021 IPOs and are measured from the offer price; measured from the first-day close the medians are worse (−25.7% at 3 years, −32.0% at 5).</li>
     </ul>
   </section>
 
@@ -284,6 +380,10 @@
       <li><a href="https://academic.oup.com/rcfs/article/13/2/459/6664002">Kim &amp; Michaely — Sticking Around Too Long? Dynamics of the Benefits of Dual-Class Structures (RCFS)</a></li>
       <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X21005407">Aggarwal, Eldar, Hochberg &amp; Litov — The Rise of Dual-Class Stock IPOs (JFE)</a></li>
       <li><a href="https://www.cii.org/files/CII%20Summary%20of%20DC%20Studies.pdf">Council of Institutional Investors — Summary of Dual-Class Studies</a></li>
+      <li><a href="https://www.renaissancecapital.com/review/2024USReview_Public.pdf">Renaissance Capital — 2024 US IPO Market Review</a> · <a href="https://www.renaissancecapital.com/review/2023USReview_Public.pdf">2023 review</a></li>
+      <li><a href="https://site.warrington.ufl.edu/ritter/files/IPO-Statistics.pdf">Ritter — IPO Statistics (counts, return distributions, 1975–2025)</a> · <a href="https://site.warrington.ufl.edu/ritter/files/IPOs-and-SPACs.pdf">IPOs and SPACs tables</a></li>
+      <li><a href="https://law.stanford.edu/wp-content/uploads/2022/07/2022-01-24-A-Sober-Look-At-SPACs-Yale-Journal-on-Regulation.pdf">Klausner, Ohlrogge &amp; Ruan — A Sober Look at SPACs (Yale J. on Regulation)</a></li>
+      <li><a href="https://stockanalysis.com/ipos/2022/">stockanalysis.com — 2022 IPOs</a> · <a href="https://stockanalysis.com/ipos/2023/">2023</a> · <a href="https://stockanalysis.com/ipos/2024/">2024</a></li>
     </ul>
   </section>
 
@@ -336,6 +436,10 @@ makeChart('chart2025', '2025 IPOs — % change from offer price (June 2026)',
 makeChart('chart2026', '2026 IPOs — % change from offer price (June 2026)',
   ['Madison Air', 'Cerebras', 'Fervo Energy', 'INNIO', 'BX Digital Infra', 'Quantinuum', 'BitGo'],
   [43, 29, 27, 19, 10, -14, -70]);
+
+makeChart('chart2224', '2022–2024 IPOs — % change from offer price (June 2026; Credo Technology +2,277% omitted for scale)',
+  ['Astera Labs ’24', 'Arm ’23', 'Reddit ’24', 'Nextracker ’23', 'Cava ’23', 'Viking ’24', 'UL Solutions ’24', 'Amer Sports ’24', 'Rubrik ’24', 'TPG ’22', 'Instacart ’23', 'Tempus AI ’24', 'Birkenstock ’23', 'Waystar ’24', 'Kenvue ’23', 'Lineage ’24', 'Savers ’23', 'Klaviyo ’23', 'Mobileye ’22'],
+  [819, 503, 407, 366, 271, 269, 248, 160, 123, 42, 37, 34, -4, -13, -18, -43, -47, -52, -56]);
 
 new Chart(document.getElementById('chartFactors'), {
   type: 'bar',
