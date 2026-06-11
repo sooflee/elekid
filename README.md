@@ -3,7 +3,7 @@
 A static report on how US-listed IPOs from 2025 and 2026 year-to-date have performed
 relative to their offer prices, as of June 10, 2026.
 
-**Live report:** https://sooflee.github.io/elekid/
+**Live report:** https://www.bwang.io/elekid/
 
 ## Highlights
 
