@@ -1,7 +1,7 @@
-# Stock Performance After IPO — 2025 & 2026 US IPOs
+# Stock Performance After IPO — US IPOs 2022–2026
 
-A static report on how US-listed IPOs from 2025 and 2026 year-to-date have performed
-relative to their offer prices, as of June 10, 2026.
+A static report on how US-listed IPOs from 2022 through 2026 year-to-date have performed
+relative to their offer prices, as of June 10–11, 2026.
 
 **Live report:** https://www.bwang.io/elekid/
 
