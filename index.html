@@ -197,12 +197,75 @@
   </section>
 
   <section>
+    <h2>What makes IPO stocks go up or down?</h2>
+    <p class="section-note">
+      Decades of academic research — most of it from Jay Ritter's IPO dataset (1980–2024, 9,253 IPOs) — shows the average IPO
+      <strong style="color:var(--text)">underperforms the market by about 3.6% per year for five years</strong> after listing.
+      But the averages hide enormous spreads between cohorts. These are the factors with the strongest evidence.
+    </p>
+
+    <h3>Does founder ownership predict better returns?</h3>
+    <p class="section-note" style="margin-bottom:10px">
+      The evidence leans <strong style="color:var(--text)">yes, with caveats</strong>. Founder-CEO firms among large US companies earned
+      +8.3%/year benchmark-adjusted over 1993–2002 (+4.4%/year after controlling for firm, CEO, and industry characteristics — so it is not
+      purely a tech-sector artifact). Dual-class IPOs, the classic founder-control structure, returned +29.5% over 3 years vs +18.0% for
+      single-class IPOs; among tech IPOs, dual-class <em>beat</em> the market by 13.8% while single-class lagged by 15.4%.
+    </p>
+    <div class="callout">
+      <strong>The catch:</strong> dual-class firms command a valuation premium <em>at</em> the IPO that dissipates as the firm matures —
+      founder control looks like an early-life-cycle advantage, not a permanent one. The effect is also weaker than profitability or scale,
+      and institutional studies report mixed results for mature dual-class firms. Read it as a mild positive signal, strongest in tech and
+      in the first years after listing.
+    </div>
+
+    <h3>IPO-specific factors, ranked by evidence</h3>
+    <div class="chart-wrap"><canvas id="chartFactors" height="300"></canvas></div>
+    <table>
+      <thead>
+        <tr><th>Factor</th><th>3-yr market-adjusted return</th><th>Evidence</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Scale (LTM sales ≥$1B vs &lt;$100M)</td><td><span class="pos">−2%</span> vs <span class="neg">−34%</span> (&lt;$10M: −52%)</td><td>Well-established; one of the largest effects</td></tr>
+        <tr><td>Valuation at listing (P/S &lt;5 vs &gt;40)</td><td><span class="pos">−1%</span> vs <span class="neg">−59%</span></td><td>Well-established</td></tr>
+        <tr><td>Profitable vs unprofitable at IPO</td><td><span class="pos">−13%</span> vs <span class="neg">−31%</span></td><td>Well-established</td></tr>
+        <tr><td>Dual-class (founder control) vs single</td><td><span class="pos">−7%</span> vs <span class="neg">−22%</span></td><td>Established; premium fades with age</td></tr>
+        <tr><td>VC-backed vs not</td><td><span class="pos">−14%</span> vs <span class="neg">−25%</span></td><td>Established; reverses in bubbles (1999–2000)</td></tr>
+        <tr><td>Broken IPO (negative first day)</td><td><span class="neg">−32%</span>; two-thirds negative after 3 yrs</td><td>Established</td></tr>
+        <tr><td>Underwriter tier</td><td>Bottom-tier banks ≈ <span class="neg">−89%</span> (2012–24) vs ≈flat for top banks</td><td>Canonical (Ritter data)</td></tr>
+        <tr><td>Company age at IPO</td><td>Strong monotone: younger = worse</td><td>Canonical (Ritter 1991)</td></tr>
+        <tr><td>Hot-market timing</td><td>High-volume IPO years perform worst</td><td>Canonical (windows of opportunity)</td></tr>
+        <tr><td>Lockup expiration (~180 days)</td><td>≈ −1 to −3% around the unlock</td><td>Established but modest</td></tr>
+      </tbody>
+    </table>
+
+    <h3>General drivers of any stock's direction</h3>
+    <ul class="caveats">
+      <li><strong style="color:var(--text)">Earnings surprises</strong> — the strongest short-horizon driver; stocks drift in the direction of the surprise for weeks (post-earnings-announcement drift). Well-established.</li>
+      <li><strong style="color:var(--text)">Interest rates &amp; macro</strong> — rising real rates compress valuations, hitting long-duration growth stocks (like recent IPOs) hardest. Well-established mechanism.</li>
+      <li><strong style="color:var(--text)">Momentum</strong> — 6–12 month winners keep winning on average; among the most replicated anomalies, but prone to violent crashes.</li>
+      <li><strong style="color:var(--text)">Float &amp; short constraints</strong> — small floats with divergent opinions produce overpricing that corrects as float grows; high short interest predicts underperformance.</li>
+      <li><strong style="color:var(--text)">Dilution vs buybacks</strong> — net share issuers underperform net repurchasers; robust cross-sectional finding.</li>
+      <li><strong style="color:var(--text)">Index inclusion</strong> — one-time positive pop on S&amp;P 500 addition; the effect has shrunk over time. Weak/diminishing.</li>
+      <li><strong style="color:var(--text)">Institutional ownership</strong> — rising ownership accompanies outperformance, but causality is murky. Mixed.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>Bottom line:</strong> the most powerful predictors for a post-IPO stock are scale and profitability at listing, the valuation
+      multiple, the era (hot vs cold IPO market), underwriter tier, VC backing, and founder/dual-class structure — then ongoing earnings
+      surprises and the rate environment once the stock is seasoned. Founder ownership helps, but it is a weaker signal than
+      "was it profitable and reasonably priced when it listed." This maps onto the 2025–26 cohorts above: Klarna and Chime
+      (unprofitable fintechs at rich multiples) fit the loser profile; CoreWeave and Cerebras (large scale, real revenue) fit the survivors.
+    </div>
+  </section>
+
+  <section>
     <h2>Methodology &amp; caveats</h2>
     <ul class="caveats">
       <li>All "current" prices are intraday snapshots from June 10, 2026 and will drift; exact percentages may vary by a few points depending on quote timing.</li>
       <li>The 202-IPO count (Renaissance Capital) covers deals with ≥$50M market cap and excludes SPACs and closed-end funds; the 347-listing count (stockanalysis.com) includes SPACs and micro-caps. The two methodologies should not be mixed.</li>
       <li>The 38.3%-above-offer figure and the "other notable 2025 names" returns are from Renaissance's mid/late-December 2025 snapshot, not June 2026. Given that Figma and Bullish have since flipped below offer, the share above offer today is likely lower.</li>
       <li>No verified June-2026 above/below-offer split exists for the full cohorts; a claim attempting one for recent 2026 deals failed independent verification and is excluded.</li>
+      <li>In the factors section, figures marked "well-established"/"established" were verified against the cited primary studies; items marked "canonical" are standard findings from the IPO literature (Ritter 1991 and Ritter's data files) reported as published. Academic results are long-period averages and may not hold in any given year or for any given stock.</li>
     </ul>
   </section>
 
@@ -215,6 +278,12 @@
       <li><a href="https://stockanalysis.com/ipos/2025/">stockanalysis.com — 2025 IPOs</a> · <a href="https://stockanalysis.com/ipos/2026/">2026 IPOs</a></li>
       <li><a href="https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/">TechCrunch — Cerebras raises $5.5B</a></li>
       <li><a href="https://www.tipranks.com/news/2025-ipo-winners-and-losers-figma-bullish-klarna-lead-31-billion-comeback">TipRanks — 2025 IPO winners and losers</a></li>
+      <li><a href="https://site.warrington.ufl.edu/ritter/files/IPOs-long-run-returns-on-IPOs.pdf">Ritter — Long-run Returns on IPOs, 1980–2024 (data tables)</a> · <a href="https://site.warrington.ufl.edu/ritter/ipo-data/">IPO data site</a> · <a href="https://site.warrington.ufl.edu/ritter/files/IPOs-Underpricing.pdf">underpricing tables</a></li>
+      <li><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-6261.1991.tb03743.x">Ritter (1991) — The Long-Run Performance of Initial Public Offerings, Journal of Finance</a></li>
+      <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=606527">Fahlenbrach — Founder-CEOs, Investment Decisions, and Stock Market Performance</a></li>
+      <li><a href="https://academic.oup.com/rcfs/article/13/2/459/6664002">Kim &amp; Michaely — Sticking Around Too Long? Dynamics of the Benefits of Dual-Class Structures (RCFS)</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X21005407">Aggarwal, Eldar, Hochberg &amp; Litov — The Rise of Dual-Class Stock IPOs (JFE)</a></li>
+      <li><a href="https://www.cii.org/files/CII%20Summary%20of%20DC%20Studies.pdf">Council of Institutional Investors — Summary of Dual-Class Studies</a></li>
     </ul>
   </section>
 
@@ -267,6 +336,30 @@ makeChart('chart2025', '2025 IPOs — % change from offer price (June 2026)',
 makeChart('chart2026', '2026 IPOs — % change from offer price (June 2026)',
   ['Madison Air', 'Cerebras', 'Fervo Energy', 'INNIO', 'BX Digital Infra', 'Quantinuum', 'BitGo'],
   [43, 29, 27, 19, 10, -14, -70]);
+
+new Chart(document.getElementById('chartFactors'), {
+  type: 'bar',
+  data: {
+    labels: ['Scale: sales ≥$1B vs <$100M', 'Valuation: P/S <5 vs >40', 'Profitable vs unprofitable', 'VC-backed vs not', 'Dual-class vs single-class'],
+    datasets: [
+      { label: 'Favorable cohort', data: [-2.1, -1.3, -13.0, -13.6, -6.7], backgroundColor: 'rgba(52, 211, 153, 0.75)', borderRadius: 4 },
+      { label: 'Unfavorable cohort', data: [-34.3, -58.5, -30.7, -25.2, -22.0], backgroundColor: 'rgba(248, 113, 113, 0.75)', borderRadius: 4 }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {
+      legend: { labels: { color: axisColor } },
+      title: { display: true, text: '3-year market-adjusted IPO returns by factor (Ritter, 1980–2024)', color: '#e8eaf0', font: { size: 14, weight: '600' } },
+      tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw + '% vs market' } }
+    },
+    scales: {
+      x: { ticks: { color: axisColor, callback: v => v + '%' }, grid: { color: gridColor } },
+      y: { ticks: { color: axisColor }, grid: { display: false } }
+    }
+  }
+});
 </script>
 
 </body>
