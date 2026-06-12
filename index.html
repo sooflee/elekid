@@ -124,8 +124,8 @@
   .callout strong { color: var(--text); }
   ul.caveats { margin: 12px 0 28px; padding-left: 1.1em; color: var(--muted); font-size: 15px; line-height: 1.65; }
   ul.caveats li { margin: .35em 0 .6em; }
-  ul.caveats a.sec { color: inherit; text-decoration: underline; text-decoration-color: #b9b3a8; text-underline-offset: 2px; }
-  ul.caveats a.sec:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  ul.caveats a.sec, .callout a.sec { color: inherit; text-decoration: underline; text-decoration-color: #b9b3a8; text-underline-offset: 2px; }
+  ul.caveats a.sec:hover, .callout a.sec:hover { color: var(--accent); text-decoration-color: var(--accent); }
   .sources a { color: var(--accent); text-decoration: underline; text-decoration-color: #b9b3a8; text-underline-offset: 2px; }
   .sources a:hover { text-decoration-color: var(--accent); }
   .sources li { margin-bottom: 6px; font-family: var(--sans); font-size: 13.5px; }
@@ -146,11 +146,12 @@
     <div class="kick">Market Research · The SpaceX IPO</div>
     <h1>Will the SpaceX IPO Beat the Market?</h1>
     <p class="subtitle">An on-the-record forecast for the SpaceX (SPCX) listing, and the evidence behind it: the factors that predict post-IPO returns and the record of US IPOs from 2023 through 2026.</p>
-    <span class="asof">Data as of June 10–11, 2026 · prices are intraday snapshots</span>
+    <span class="asof">Data as of June 10–11, 2026 · prices are intraday snapshots · day-one update added June 12</span>
   </div>
 </header>
 
 <nav class="outline" aria-label="Outline">
+  <a href="#update">Updates</a>
   <a href="#takeaways">The answer</a>
   <a href="#forecast">1 · The SPCX forecast</a>
   <a class="sub" href="#step1">Score the factors</a>
@@ -167,6 +168,16 @@
 </nav>
 
 <main class="container">
+
+  <section id="update">
+    <div class="eyebrow">Updates · scoring the frozen forecast</div>
+    <ul class="caveats" style="color:var(--text); margin-top:0">
+      <li><strong>Jun 12 · Day one — <span class="pos">hit</span>.</strong> Predicted: opens up 10–20%, near $157, closes
+      above the offer. Actual: opened $150.00 (+11.1%), closed $160.98 (+19.2%) — both inside the band. The miss: a midday
+      spike to $176.49 (+31%) was more euphoric than called, briefly crossing the ~$175 bonus-unlock trigger
+      (<a class="sec" href="#step4">Step&nbsp;4</a>).</li>
+    </ul>
+  </section>
 
   <section id="takeaways">
     <h2>The answer</h2>
