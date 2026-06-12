@@ -153,10 +153,15 @@
 <nav class="outline" aria-label="Outline">
   <a href="#takeaways">The answer</a>
   <a href="#forecast">1 · The SPCX forecast</a>
+  <a class="sub" href="#step1">Score the factors</a>
+  <a class="sub" href="#step2">Price arithmetic</a>
+  <a class="sub" href="#step3">Mega-IPO backtest</a>
+  <a class="sub" href="#step4">Supply schedule</a>
+  <a class="sub" href="#call">The forecast</a>
   <a href="#evidence">2 · What predicts returns</a>
   <a class="sub" href="#timing">When IPOs fall</a>
-  <a href="#record">3 · The record</a>
-  <a href="#account">Hold to account</a>
+  <a class="sub" href="#record">The record 2023–26</a>
+  <a href="#account">The scorecard</a>
   <a href="#methodology">Methodology</a>
   <a href="#sources">Sources</a>
 </nav>
@@ -171,7 +176,7 @@
       the offer); a squeeze-prone summer on the ~4% float; a bend down in months 3–6 as staged lockups expand supply ~14x; an end to
       2026 above the offer (median $145) but below the summer high. The way this breaks is the Musk premium: if SPCX trades as a belief
       asset rather than on fundamentals, the multiple can persist far longer than history allows. Part 1 gives the full forecast;
-      Parts 2 and 3 give the evidence and the recent record behind it.
+      Part 2 gives the evidence and the recent record behind it.
     </p>
     <p class="section-note" style="margin-bottom:6px">The reasons, in brief:</p>
     <ul class="caveats" style="color:var(--text)">
@@ -201,11 +206,11 @@
     <div class="bigstat"><div class="value">$1.75T</div><div class="label">SpaceX's valuation at the $135 offer. The $75B raise is the largest in IPO history.</div></div>
 
     <p class="section-note">
-      The forecast is built in five steps: score the factors, test the price arithmetic, compare past mega-IPOs, backtest the framework,
+      The forecast is built in four steps: score the factors, test the price arithmetic, compare past mega-IPOs and backtest the framework against them,
       map the supply schedule. The trajectory and numbers at the end follow from them.
     </p>
 
-    <h3>Step 1 · Score SPCX against the factors</h3>
+    <h3 id="step1">Step 1 · Score SPCX against the factors</h3>
     <div class="bigstat"><div class="value down">−$4.9B</div><div class="label">SpaceX's 2025 net loss, driven by a $20B investment in xAI. Operating EBITDA was +$6.6B.</div></div>
     <p class="section-note" style="margin-bottom:10px">
       Signal is direction; <strong style="color:var(--text)">weight</strong> is how much that factor historically moves 3-year returns
@@ -224,12 +229,12 @@
         <tr><td>Underwriter tier</td><td>Goldman Sachs (structure), Morgan Stanley (aftermarket)</td><td><span class="pos">Positive</span></td><td><span class="wt wt-low">Low</span> · only avoiding bottom-tier banks matters</td></tr>
         <tr><td>Company age</td><td>24 years old</td><td><span class="pos">Positive</span></td><td><span class="wt wt-med">Medium</span> · largely overlaps with scale</td></tr>
         <tr><td>Broken-IPO risk (a day-one close below the offer)</td><td>Gray market ~16% above offer pre-listing</td><td><span class="pos">Likely avoided</span></td><td><span class="wt wt-med">Medium</span> · avoiding it is merely neutral</td></tr>
-        <tr><td>Float &amp; lockup</td><td>~4% float; staged unlocks expand it ~14x in six months (Step 5)</td><td><span class="neg">Fast float expansion, a supply drag</span></td><td><span class="wt wt-med">Medium</span> · typical unlocks are small; the 4% float makes supply binding here</td></tr>
+        <tr><td>Float &amp; lockup</td><td>~4% float; staged unlocks expand it ~14x in six months (Step 4)</td><td><span class="neg">Fast float expansion, a supply drag</span></td><td><span class="wt wt-med">Medium</span> · typical unlocks are small; the 4% float makes supply binding here</td></tr>
       </tbody>
     </table>
 
-    <h3>Step 2 · What the $1.75T price has to assume</h3>
-    <div class="bigstat"><div class="value">~97x</div><div class="label">Price-to-sales at listing, on $18B of 2025 revenue. The worst-performing historical bucket starts at 40x.</div></div>
+    <h3 id="step2">Step 2 · What the $1.75T price has to assume</h3>
+    <div class="chart-wrap" style="height:300px"><canvas id="chartPS"></canvas></div>
     <p class="section-note" style="margin-bottom:10px">
       <strong style="color:var(--text)">Revenue cannot grow into this price in three years.</strong> Upside from $135 is a bet that the
       market keeps paying for Starship/Mars optionality, not for the businesses. At $135, SpaceX carries ~12.96B shares
@@ -239,65 +244,44 @@
       top-decile for a mature growth company, ~$43 (−68%). This is why valuation dominates the factor score and the bear tail below is fat.
     </p>
 
-    <h3>Step 3 · How past mega-IPOs traded <span class="pill">returns from offer, approximate</span></h3>
+    <h3 id="step3">Step 3 · The mega-IPO comparables and the framework's track record <span class="pill">returns from offer, approximate</span></h3>
     <p class="section-note" style="margin-bottom:10px">
       The better reference class for a $1.75T listing is the largest-ever IPOs; the factor averages come from thousands of mostly
-      small deals far outside this sample:
+      small deals far outside this sample. Scoring the framework against each comparable, using only what was knowable on its listing
+      day, it got <strong style="color:var(--text)">5 of 6 right on first-year entry risk and ~3 of 6 at three years</strong>.
+      Line color shows the verdict:
     </p>
     <div class="chart-wrap" style="height:300px"><canvas id="chartMega"></canvas></div>
     <table>
       <thead>
-        <tr><th>Company</th><th>Year</th><th class="num">Raised</th><th>Profile at listing</th><th class="num">Day 1</th><th class="num">~1 yr</th><th class="num">~3 yr</th></tr>
+        <tr><th>Company</th><th class="num">Raised</th><th>Profile and framework signal at listing</th><th class="num">Day 1</th><th class="num">~1 yr</th><th class="num">~3 yr</th><th>Call</th></tr>
       </thead>
       <tbody>
-        <tr><td>Visa</td><td>2008</td><td class="num">$17.9B</td><td>Profitable toll road, sensible multiple</td><td class="num pos">+28%</td><td class="num pos">+25%</td><td class="num pos">+150%</td></tr>
-        <tr><td>Facebook</td><td>2012</td><td class="num">$16.0B</td><td>Profitable but ~25x sales; record retail hype</td><td class="num pos">+1%</td><td class="num neg">−30%</td><td class="num pos">+110%</td></tr>
-        <tr><td>Alibaba</td><td>2014</td><td class="num">$25.0B</td><td>Profitable, large, ~25x sales</td><td class="num pos">+38%</td><td class="num neg">−10%</td><td class="num pos">+150%</td></tr>
-        <tr><td>Saudi Aramco</td><td>2019</td><td class="num">$25.6B</td><td>Hugely profitable; ~1.7% float</td><td class="num pos">+10%</td><td class="num pos">+10%</td><td class="num pos">+15%</td></tr>
-        <tr><td>Uber</td><td>2019</td><td class="num">$8.1B</td><td>Unprofitable, ~8x sales</td><td class="num neg">−8%</td><td class="num neg">−25%</td><td class="num neg">−50%</td></tr>
-        <tr><td>Rivian</td><td>2021</td><td class="num">$11.9B</td><td>Pre-revenue, story-priced, hot market</td><td class="num pos">+29%</td><td class="num neg">−60%</td><td class="num neg">−85%</td></tr>
-        <tr><td>Arm Holdings</td><td>2023</td><td class="num">$4.9B</td><td>Profitable, ~20x sales, AI tape</td><td class="num pos">+25%</td><td class="num pos">+175%</td><td class="num pos">+500%</td></tr>
+        <tr><td>Visa (2008)</td><td class="num">$17.9B</td><td>Profitable toll road at a sensible multiple: favorable</td><td class="num pos">+28%</td><td class="num pos">+25%</td><td class="num pos">+150%</td><td><span class="pos">Hit</span></td></tr>
+        <tr><td>Facebook (2012)</td><td class="num">$16.0B</td><td>Profitable but ~25x sales, record retail hype: mixed-negative</td><td class="num pos">+1%</td><td class="num neg">−30%</td><td class="num pos">+110%</td><td><span class="mixed">Half, right on entry risk, wrong at 3 yrs</span></td></tr>
+        <tr><td>Alibaba (2014)</td><td class="num">$25.0B</td><td>Profitable, large, but ~25x sales: mixed</td><td class="num pos">+38%</td><td class="num neg">−10%</td><td class="num pos">+150%</td><td><span class="mixed">Half, same shape</span></td></tr>
+        <tr><td>Saudi Aramco (2019)</td><td class="num">$25.6B</td><td>Hugely profitable, ~1.7% float</td><td class="num pos">+10%</td><td class="num pos">+10%</td><td class="num pos">+15%</td><td><span class="mixed">Not scored</span></td></tr>
+        <tr><td>Uber (2019)</td><td class="num">$8.1B</td><td>Unprofitable, ~8x sales, late-cycle: negative</td><td class="num neg">−8%</td><td class="num neg">−25%</td><td class="num neg">−50%</td><td><span class="pos">Hit</span></td></tr>
+        <tr><td>Rivian (2021)</td><td class="num">$11.9B</td><td>Pre-revenue, story-priced, hot market: strongly negative</td><td class="num pos">+29%</td><td class="num neg">−60%</td><td class="num neg">−85%</td><td><span class="pos">Hit</span></td></tr>
+        <tr><td>Arm (2023)</td><td class="num">$4.9B</td><td>Profitable, ~20x sales, AI tape: negative lean</td><td class="num pos">+25%</td><td class="num pos">+175%</td><td class="num pos">+500%</td><td><span class="neg">Miss</span></td></tr>
       </tbody>
     </table>
     <div class="callout">
-      <strong>Three analogs matter most.</strong> <em>Aramco</em> for the float, whose tiny free float pinned the price near the offer for
-      years. <em>Rivian</em> for the valuation, story-priced and unprofitable in a hot tape, −85%. <em>Facebook</em> for the retail hype,
-      which broke ~50% within four months as supply and earnings arrived, then recovered on fundamentals it actually delivered.
-      Mega-IPOs as a class also beat the average IPO (five of seven were above offer at year three), so the cohort base rates alone are
-      too pessimistic for this deal.
+      <strong>Three analogs matter most:</strong> <em>Aramco</em> for the float, which pinned the price near the offer for years;
+      <em>Rivian</em> for the valuation, story-priced in a hot tape, −85%; <em>Facebook</em> for the retail hype, down ~50% in four
+      months before fundamentals brought it back. Five of seven finished year three above offer, so the cohort base rates alone are
+      too pessimistic for this deal. The one miss, Arm, is a belief-asset re-rating: the framework's edge is the entry window, its
+      blind spot the right tail.
     </div>
 
-    <h3>Step 4 · Backtest: would this framework have called past mega-IPOs?</h3>
-    <p class="section-note" style="margin-bottom:10px">
-      <strong style="color:var(--text)">The framework got 5 of 6 right on first-year entry risk and ~3 of 6 at three years.</strong>
-      Scoring the same factor table against each comparable, using only what was knowable on its listing day:
-    </p>
-    <table>
-      <thead>
-        <tr><th>Company</th><th>Framework signal at listing</th><th>What happened</th><th>Call</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Visa 2008</td><td>Favorable (profitable, large, reasonably priced)</td><td>+150% over 3 yrs, through the financial crisis</td><td><span class="pos">Hit</span></td></tr>
-        <tr><td>Rivian 2021</td><td>Strongly negative (unprofitable, extreme valuation, hot market)</td><td>−85%</td><td><span class="pos">Hit</span></td></tr>
-        <tr><td>Uber 2019</td><td>Negative (unprofitable, rich, late-cycle)</td><td>Below offer for 3+ years</td><td><span class="pos">Hit</span></td></tr>
-        <tr><td>Facebook 2012</td><td>Mixed-negative (profitable but ~25x sales, hyped)</td><td>Broke ~50% in 4 months; +110% by year 3</td><td><span class="mixed">Half, right on entry risk, wrong at 3 yrs</span></td></tr>
-        <tr><td>Alibaba 2014</td><td>Mixed (profitable and large but ~25x sales)</td><td>Below offer in year 1; ~+150% by year 3</td><td><span class="mixed">Half, same shape</span></td></tr>
-        <tr><td>Arm 2023</td><td>Negative lean (~20x sales at listing)</td><td>+500% in the AI re-rating</td><td><span class="neg">Miss</span></td></tr>
-      </tbody>
-    </table>
-    <div class="callout">
-      <strong>The misses share one profile:</strong> a dominant technology franchise re-rated as a belief asset in a hot tape.
-      The framework's edge is the entry window; its blind spot is the right tail.
-    </div>
-
-    <h3>Step 5 · The supply schedule <span class="pill">est. tradable share of company</span></h3>
+    <h3 id="step4">Step 4 · The supply schedule <span class="pill">est. tradable share of company</span></h3>
     <p class="section-note" style="margin-bottom:10px">
       <strong style="color:var(--text)">Supply is the highest-confidence input.</strong> Lockups (agreements barring insiders from
       selling for a set period) normally hold an IPO's tradable float steady until day 180, when supply roughly doubles. SPCX's float
-      grows ~14x in six months, and the bonus tranche is price-triggered: a rally above ~$175 itself releases more stock. This drives
-      the months 3–6 bend in the trajectory below.
+      grows ~14x in six months, and the bonus tranche is price-triggered: a rally above ~$175 itself releases more stock. A third of
+      the small starting float went to retail investors, three times the mega-cap norm. This drives the months 3–6 bend in the
+      trajectory below.
     </p>
-    <div class="bigstat"><div class="value">~4%</div><div class="label">The share of the company tradable at listing. A third of it went to retail investors, three times the mega-cap norm.</div></div>
     <div class="chart-wrap" style="height:260px"><canvas id="chartSupply"></canvas></div>
     <table>
       <thead>
@@ -311,9 +295,9 @@
         <tr><td>Day 366 (Jun 2027)</td><td>Musk's stake unlocks</td><td class="num">up to ~100%</td></tr>
       </tbody>
     </table>
-    <h3>The forecast <span class="pill">frozen pre-trade · June 11, 2026</span></h3>
+    <h3 id="call">The forecast <span class="pill">frozen pre-trade · June 11, 2026</span></h3>
     <p class="section-note" style="margin-bottom:10px">
-      The five steps above point one way: strong demand and a tiny float early, then mounting supply against an unsupportable multiple.
+      The four steps above point one way: strong demand and a tiny float early, then mounting supply against an unsupportable multiple.
       In sequence:
     </p>
     <table>
@@ -321,17 +305,17 @@
         <tr><th>Window</th><th>Prediction</th><th>Reasoning</th></tr>
       </thead>
       <tbody>
-        <tr><td>Day 1 (Jun 12)</td><td>Opens up ~10–20%, near the gray-market ~$157, solid but not euphoric</td><td>Fading gray-market premium; the 30% retail allocation pre-satisfies day-one demand (Step 5)</td></tr>
-        <tr><td>Weeks 1–8</td><td>Volatile with an upward bias; squeeze-prone, potentially well above $160</td><td>Classic small-float squeeze setup (Step 5); possible Nasdaq-100 inclusion flows</td></tr>
-        <tr><td>Months 3–6 (Sep–Dec 2026)</td><td>Bends down, grinding lower from the summer high</td><td>Float expands to ~30%+ after the first earnings report, then 7% tranches (Step 5); first public scrutiny of the $4.9B loss</td></tr>
+        <tr><td>Day 1 (Jun 12)</td><td>Opens up ~10–20%, near the gray-market ~$157, solid but not euphoric</td><td>Fading gray-market premium; the 30% retail allocation pre-satisfies day-one demand (Step 4)</td></tr>
+        <tr><td>Weeks 1–8</td><td>Volatile with an upward bias; squeeze-prone, potentially well above $160</td><td>Classic small-float squeeze setup (Step 4); possible Nasdaq-100 inclusion flows</td></tr>
+        <tr><td>Months 3–6 (Sep–Dec 2026)</td><td>Bends down, grinding lower from the summer high</td><td>Float expands to ~30%+ after the first earnings report, then 7% tranches (Step 4); first public scrutiny of the $4.9B loss</td></tr>
         <tr><td>Years 1–3</td><td>Lags the market from the $135 offer; day-one buyers fare worse</td><td>Valuation outweighs scale (Steps 1–2); the multiple cannot compress without the price falling</td></tr>
       </tbody>
     </table>
 
     <p class="section-note" style="margin-bottom:10px">
       In numbers, the targets and probabilities below are subjective calibrated estimates built from the cohort base rates, adjusted up
-      for the mega-IPO selection effect (Step 3) and the framework's right-tail blind spot (Step 4), and down for the supply schedule
-      (Step 5). P10/P90 are 10th/90th-percentile outcomes; the band should contain ~80% of what happens, and medians should be beaten
+      for the mega-IPO selection effect and the framework's right-tail blind spot (both Step 3), and down for the supply schedule
+      (Step 4). P10/P90 are 10th/90th-percentile outcomes; the band should contain ~80% of what happens, and medians should be beaten
       about half the time.
     </p>
     <div class="chart-wrap" style="height:300px"><canvas id="chartForecast"></canvas></div>
@@ -347,7 +331,7 @@
 
 
   <section id="evidence">
-    <div class="eyebrow">Part 2 · The evidence</div>
+    <div class="eyebrow">Part 2 · The evidence and the record</div>
     <h2>What predicts IPO returns</h2>
     <p class="section-note">
       The average IPO <strong style="color:var(--text)">underperforms the market by about 3.6% per year for five years</strong> after
@@ -394,18 +378,11 @@
     <h3 id="timing">How often IPOs fall, and when</h3>
     <p class="section-note" style="margin-bottom:10px">
       Falling below the offer price is the <strong style="color:var(--text)">norm, not the exception</strong> (9,195 US
-      operating-company IPOs, 1975–2021, Ritter). Small listings drag these base rates down and large deals clear them more often,
-      but the shape, and the timing below, holds at every size:
+      operating-company IPOs, 1975–2021, Ritter): <span class="neg">56.1%</span> trade below offer three years later (57.1% at five,
+      over a third losing more than half), and the median three-year return is <span class="neg">−16.6%</span> from the offer, or
+      <span class="neg">−25.7%</span> from the first-day close that a day-one buyer actually pays; rare huge winners pull the mean up
+      to +38.5%. Small listings drag these base rates down and large deals clear them more often, but the shape holds at every size.
     </p>
-    <div class="bigstat"><div class="value down">56.1%</div><div class="label">The share of IPOs trading below their offer price three years later. At five years it is 57.1%, and over a third lose more than half.</div></div>
-    <p class="section-note" style="margin-bottom:10px">
-      The median IPO loses money even though the average looks fine, because rare huge winners pull the mean up:
-    </p>
-    <div class="bigstat"><div class="value down">−16.6%</div><div class="label">The median three-year return from the offer price. The mean is +38.5%.</div></div>
-    <p class="section-note" style="margin-bottom:10px">
-      And buying after the pop is worse:
-    </p>
-    <div class="bigstat"><div class="value down">−25.7%</div><div class="label">The median three-year return from the first-day close, the price a day-one buyer actually pays.</div></div>
 
     <h3>When the declines happen</h3>
     <p class="section-note" style="margin-bottom:10px">
@@ -429,11 +406,8 @@
       <strong>For any single stock, watch</strong> the lockup date, the first two earnings reports, and whether insiders
       actually sell when they can.
     </div>
-  </section>
 
-  <section id="record">
-    <div class="eyebrow">Part 3 · The record</div>
-    <h2>The record, 2023–2026</h2>
+    <h3 id="record">The recent record, 2023–2026</h3>
     <p class="section-note">
       <strong style="color:var(--text)">Big deals systematically beat the long tail of small listings</strong> that make up most of
       every cohort. Every dot below is a real deal:
@@ -460,13 +434,13 @@
       <li><strong>Large deals carry everything.</strong> The $100M+ slice beat its full cohort at every year-end (+27% in 2023, +29% in 2024, +18–21% in 2025), a premium of roughly 20–30 points. The median listing loses money; only 38.3% of 2025's IPOs ended the year above offer.</li>
       <li><strong>Year-end averages flatter; seasoning reveals.</strong> Each cohort finishes its listing year roughly flat (+4%, ≈0%, +1–2%), then decays as lockups clear: 2023's flat year-end became a −30.9% three-year hold (−88.3% vs the market), and 2025's large deals that were above offer at year-end flipped negative through H1 2026.</li>
       <li><strong>Supply grows into weakening returns.</strong> Issuance climbed every year ($19.4B, $29.6B, $44.0B raised, and 2026 listings running +17% ahead year-over-year) while the Renaissance IPO Index fell −8% in Q1 2026 vs the S&amp;P's −4%, the hot-market profile that historically precedes the worst cohorts.</li>
-      <li><strong>Winners cluster in the cycle's hot theme</strong> (AI infrastructure and stablecoins now); fintech/BNPL and crypto cluster among the losers. All of it matches the Part 2 factors: big, profitable, reasonably priced, bought at the offer.</li>
+      <li><strong>Winners cluster in the cycle's hot theme</strong> (AI infrastructure and stablecoins now); fintech/BNPL and crypto cluster among the losers. All of it matches the factors above: big, profitable, reasonably priced, bought at the offer.</li>
     </ul>
 
     <h3>The pop fades: day one vs today <span class="pill">2025–26 deals with verified day-one closes</span></h3>
     <p class="section-note" style="margin-bottom:10px">
       <strong style="color:var(--text)">Buying at the day-one close lost money in 10 of these 11 deals</strong> (median −45%), the
-      live version of Part 2's finding that the pop is "captured by IPO allocants, not aftermarket buyers." Each deal's day-one pop,
+      live demonstration of the finding above that the pop is "captured by IPO allocants, not aftermarket buyers." Each deal's day-one pop,
       next to what a buyer at that day-one close has made since:
     </p>
     <div class="chart-wrap" style="height:420px"><canvas id="chartPop"></canvas></div>
@@ -479,7 +453,7 @@
   </section>
 
   <section id="account">
-    <h2>Holding this forecast to account</h2>
+    <h2>The scorecard</h2>
     <p class="section-note">
       The answer, once more: <strong style="color:var(--text)">probably not</strong>. SPCX should clear the $135 offer on day one, run
       hot through the summer, bend down as insider stock unlocks, and trail the S&amp;P 500 over years 1–3. The forecast was frozen on
@@ -500,7 +474,7 @@
       <li>The scatter shows 482 US IPOs from 2023 through June 11, 2026 with a reported deal size and return on stockanalysis.com's year pages (Deal Size and Return From IPO Price columns), pulled June 12, 2026. 321 SPACs are excluded, identified by name ("Acquisition", "Merger", and similar) or by the $10.00 blank-check unit price combined with a sponsor-style name, with operating companies that price at $10.00 (such as Newsmax and U.S. GoldMining) kept; this matches the report's other statistics, which are ex-SPAC, since a SPAC at IPO trades at trust value and says nothing about operating-company listings. 67 listings lacking a return or deal size are omitted (these counts include SPACs, unlike Renaissance's); nine large deals with missing deal sizes (including ARM, Astera Labs, Reddit, CAVA, Klaviyo, Tempus, Kaspi.kz, Karman, and Metsera) are included with gross proceeds from contemporaneous reports. A further 27 listings that raised $30M or less yet showed returns of +150% to +4,221% are excluded as suspected manipulation: that profile matches the micro-cap pump-and-dump pattern regulators have repeatedly flagged in small IPOs, not genuine investable returns. Returns are June 12 quotes and can differ a few points from the article's June 10–11 snapshots. The $100M+ split uses the reported deal size directly. Returns above +500% (2 deals) are drawn at the +500% edge with true values in tooltips. SPCX, priced June 11 with no trading history, is excluded.</li>
       <li>The fall-frequency statistics (56.1% and 57.1% below offer at years 3 and 5) cover 1975–2021 IPOs, measured from the offer; from the first-day close the medians are worse (−25.7% and −32.0%).</li>
       <li>The SpaceX section was written June 11, 2026, before the first trade, and is left unrevised as a test of the framework. Deal terms are from the S-1 and contemporaneous reports; the ~97x P/S is the $1.75T valuation over $18B of 2025 revenue. Gray-market prices (Hyperliquid) are thin and indicative only, and historical cohort averages may not describe a one-of-one mega-cap listing.</li>
-      <li>Mega-IPO comparable returns are approximate (from the offer, split-adjusted, rounded to ~5%, ex-dividends) and are reference points for shape, not precise figures. The backtest signals are retrospective scorings and carry hindsight risk despite using only at-the-time observables.</li>
+      <li>Mega-IPO comparable returns are approximate (from the offer, split-adjusted, rounded to ~5%, ex-dividends) and are reference points for shape, not precise figures; the price-to-sales chart in Step 2 uses the multiples stated in the comparables table plus approximate listing multiples and 3-year returns, rounded, for about twenty other prominent large US listings, with pre-revenue Rivian drawn at the axis edge. The backtest signals are retrospective scorings and carry hindsight risk despite using only at-the-time observables.</li>
       <li>Day-one closes behind the pop-fades chart are from contemporaneous press reports; BitGo, SailPoint, and Venture Global were reported only as "settled near" levels, so their returns are imprecise by a few points. Some sizable 2026 deals (Madison Air, Fervo, INNIO, BX Digital Infrastructure) lack a verified day-one close and are excluded. "Since day-1 close" returns use the June 10–11 snapshots.</li>
       <li>The SPCX targets and probabilities are the author's subjective calibrated estimates, not a fitted model, and are published to be scored. The 2029 revenue scenarios assume no major new revenue lines (Starship commercial cargo at scale would change them).</li>
     </ul>
@@ -667,13 +641,13 @@ new Chart(document.getElementById('chartMega'), {
   data: {
     labels: ['Offer', 'Day 1', '~1 yr', '~3 yr'],
     datasets: [
-      { label: 'Visa', data: [0, 28, 25, 150], borderColor: 'rgba(31, 111, 84, 0.55)' },
-      { label: 'Facebook', data: [0, 1, -30, 110], borderColor: 'rgba(39, 81, 125, 0.85)', borderWidth: 2.5 },
-      { label: 'Alibaba', data: [0, 38, -10, 150], borderColor: 'rgba(31, 111, 84, 0.55)' },
-      { label: 'Saudi Aramco', data: [0, 10, 10, 15], borderColor: 'rgba(28, 27, 25, 0.8)', borderWidth: 2.5 },
-      { label: 'Uber', data: [0, -8, -25, -50], borderColor: 'rgba(179, 56, 46, 0.45)' },
-      { label: 'Rivian', data: [0, 29, -60, -85], borderColor: 'rgba(179, 56, 46, 0.85)', borderWidth: 2.5 },
-      { label: 'Arm', data: [0, 25, 175, 500], borderColor: 'rgba(31, 111, 84, 0.55)', borderDash: [5, 4] }
+      { label: 'Visa · hit', data: [0, 28, 25, 150], borderColor: 'rgba(31, 111, 84, 0.75)' },
+      { label: 'Uber · hit', data: [0, -8, -25, -50], borderColor: 'rgba(31, 111, 84, 0.75)' },
+      { label: 'Rivian · hit', data: [0, 29, -60, -85], borderColor: 'rgba(31, 111, 84, 0.75)', borderWidth: 2.5 },
+      { label: 'Facebook · half', data: [0, 1, -30, 110], borderColor: 'rgba(39, 81, 125, 0.8)', borderWidth: 2.5 },
+      { label: 'Alibaba · half', data: [0, 38, -10, 150], borderColor: 'rgba(39, 81, 125, 0.8)' },
+      { label: 'Arm · miss', data: [0, 25, 175, 500], borderColor: 'rgba(179, 56, 46, 0.85)', borderDash: [5, 4], borderWidth: 2.5 },
+      { label: 'Aramco · not scored', data: [0, 10, 10, 15], borderColor: 'rgba(28, 27, 25, 0.4)' }
     ].map(d => ({ ...d, pointRadius: 2.5, tension: 0.15, fill: false }))
   },
   options: {
@@ -681,7 +655,7 @@ new Chart(document.getElementById('chartMega'), {
     maintainAspectRatio: false,
     plugins: {
       legend: { labels: { color: axisColor, boxHeight: 2 } },
-      title: { display: true, text: 'How the mega-IPO comparables traded from their offer (Aramco, Rivian, and Facebook are the key analogs)', color: '#1c1b19', font: { size: 14, weight: '600' } },
+      title: { display: true, text: 'The mega-IPO comparables from their offer, colored by whether the framework called them', color: '#1c1b19', font: { size: 14, weight: '600' } },
       tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + (ctx.raw > 0 ? '+' : '') + ctx.raw + '%' } }
     },
     scales: {
@@ -769,6 +743,92 @@ new Chart(document.getElementById('chartProbs'), {
     scales: {
       x: { min: 0, max: 100, ticks: { color: axisColor, callback: v => v + '%' }, grid: { color: gridColor } },
       y: { ticks: { color: axisColor, autoSkip: false }, grid: { display: false } }
+    }
+  }
+});
+
+// Shaded worst-valuation zone (P/S > 40) and SPCX marker at ~97x.
+const psZones = {
+  id: 'psZones',
+  beforeDatasetsDraw(chart) {
+    const { ctx, chartArea, scales } = chart;
+    const x40 = scales.x.getPixelForValue(40);
+    const x97 = scales.x.getPixelForValue(97);
+    ctx.save();
+    ctx.fillStyle = 'rgba(179, 56, 46, 0.07)';
+    ctx.fillRect(x40, chartArea.top, chartArea.right - x40, chartArea.bottom - chartArea.top);
+    ctx.strokeStyle = 'rgba(39, 81, 125, 0.8)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([6, 4]);
+    ctx.beginPath(); ctx.moveTo(x97, chartArea.top); ctx.lineTo(x97, chartArea.bottom); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.font = "600 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+    ctx.fillStyle = 'rgba(39, 81, 125, 1)';
+    ctx.fillText('SPCX: ~97x', x97 + 6, chartArea.top + 14);
+    ctx.fillStyle = 'rgba(179, 56, 46, 0.8)';
+    ctx.textAlign = 'right';
+    ctx.fillText('P/S > 40: worst bucket, \u221259% avg (all IPOs)', chartArea.right - 8, chartArea.bottom - 8);
+    ctx.textAlign = 'left';
+    ctx.restore();
+  }
+};
+
+new Chart(document.getElementById('chartPS'), {
+  type: 'scatter',
+  data: {
+    datasets: [{
+      data: [
+        { x: 0.4, y: 10, name: 'GM (2010)' },
+        { x: 5, y: 15, name: 'Saudi Aramco (2019)' },
+        { x: 8, y: -50, name: 'Uber (2019)' },
+        { x: 9, y: 150, name: 'Visa (2008)' },
+        { x: 11, y: -47, name: 'Lyft (2019)' },
+        { x: 13, y: -3, name: 'DoorDash (2020)' },
+        { x: 14, y: 100, name: 'Airbnb (2020)' },
+        { x: 14, y: -74, name: 'Bumble (2021)' },
+        { x: 2.3, y: 105, name: 'JD.com (2014)' },
+        { x: 2.7, y: -18, name: 'Kenvue (2023)' },
+        { x: 5, y: -49, name: 'Coupang (2021)' },
+        { x: 8, y: 29, name: 'Dropbox (2018)' },
+        { x: 9, y: -72, name: 'Peloton (2019)' },
+        { x: 13, y: 8, name: 'Pinterest (2019)' },
+        { x: 18, y: 256, name: 'LinkedIn (2011)' },
+        { x: 18, y: -63, name: 'Groupon (2011)' },
+        { x: 20, y: 500, name: 'Arm (2023)' },
+        { x: 28, y: 190, name: 'Zoom (2019)' },
+        { x: 34, y: 168, name: 'Workday (2012)' },
+        { x: 44, y: -31, name: 'Twitter (2013)' },
+        { x: 25, y: 110, name: 'Facebook (2012)' },
+        { x: 25, y: 150, name: 'Alibaba (2014)' },
+        { x: 33, y: -42, name: 'Robinhood (2021)' },
+        { x: 60, y: -30, name: 'Snap (2017)' },
+        { x: 80, y: 29, name: 'Snowflake (2020)' },
+        { x: 280, y: -85, name: 'Rivian (2021), pre-revenue, drawn at the edge' }
+      ],
+      backgroundColor: ctx => ctx.raw && ctx.raw.y >= 0 ? 'rgba(31, 111, 84, 0.8)' : 'rgba(179, 56, 46, 0.8)',
+      pointRadius: 5, pointHoverRadius: 7
+    }]
+  },
+  plugins: [psZones],
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      title: { display: true, text: 'Price-to-sales at listing vs 3-year return from offer, prominent large IPOs', color: '#1c1b19', font: { size: 14, weight: '600' } },
+      tooltip: { callbacks: { label: ctx => {
+        const d = ctx.raw;
+        return d.name + ': ' + (d.x >= 280 ? 'no meaningful P/S' : '~' + d.x + 'x sales') + ', ' + (d.y > 0 ? '+' : '') + d.y + '% over 3 yrs';
+      } } }
+    },
+    scales: {
+      x: {
+        type: 'logarithmic', min: 0.3, max: 400,
+        title: { display: true, text: 'Price-to-sales at listing (log scale)', color: axisColor },
+        ticks: { color: axisColor, callback: v => [0.5, 1, 2, 5, 10, 20, 40, 97, 200].includes(v) ? v + 'x' : '' },
+        grid: { color: gridColor }
+      },
+      y: { min: -110, max: 550, ticks: { color: axisColor, callback: v => v + '%' }, grid: { color: gridColor } }
     }
   }
 });
